@@ -311,6 +311,7 @@
           </body>
         </body>
       </body>
+      <site name="s_test"/>
     </body>
   </worldbody>
 
@@ -335,4 +336,9 @@
     <position class="affine" joint="RH_HFE" name="RH_HFE"/>
     <position class="affine" joint="RH_KFE" name="RH_KFE"/>
   </actuator>
+
+  <sensor>
+    <velocimeter name="velocimeter" site="s_test"/>
+  </sensor>
+
 </mujoco>
