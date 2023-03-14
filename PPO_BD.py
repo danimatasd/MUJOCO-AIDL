@@ -252,8 +252,8 @@ def train_sweep(is_sweep=True):
     'batch_size': 128,
     'c1': 2.,
     'c2': 0.01,
-    'std_init': 1.0,
-    'std_min': 0.8,
+    'std_init': 0.998,
+    'std_min': 0.990,
     'video_interval': 200
     }
 
@@ -267,7 +267,11 @@ def train_sweep(is_sweep=True):
 
     # Fix random seed (for reproducibility)
     seed=0
-    #env.seed(seed)
+    
+#############################################################
+#################ATENTION!###################################
+#############################################################
+
     #random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
@@ -282,11 +286,10 @@ def train_sweep(is_sweep=True):
     eps = np.finfo(np.float32).eps.item()
     memory = ReplayMemory(hparams['replay_size'])
     
-    policy = torch.load('./maple-flan-69_policy_9900_Reward-2372.16.pt')
-    optimizer = torch.load('./maple-flan-69_optimizer_9900_Reward-2372.16.pt')
+    policy = torch.load('./blackberry-cake-73_5100_Reward-2591.22_policy.pt')
+    optimizer = torch.load('./blackberry-cake-73_5100_Reward-2591.22_optimizer.pt')
 
-    action_std_decay = -(hparams['std_min']-hparams['std_init'])/hparams['num_episodes']
-    #action_std_decay = (hparams['std_init']+0.1)*100/hparams['num_episodes']
+    action_std_decay = -(hparams['std_min']-hparams['std_init'])*hparams['log_interval']/hparams['num_episodes']
     action_std_init = hparams['std_init']
     action_std = action_std_init
 
@@ -333,13 +336,7 @@ def train_sweep(is_sweep=True):
               wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
               wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
               print(f'Policy and Optimizer have been saved')
-            ############################################
-            #make action_std dependant of episode reward
-            ############################################
-            #print(f'Episode {i_episode}\tAction_std: {action_std:.2f}\tAction_std_decay: {action_std_decay:.2f}\tAverage reward: {running_reward:.2f}')
             action_std = action_std - action_std_decay
-            #action_std = action_std - action_std_decay-(ep_reward/(1000+i_episode))
-            #print(f'Episode {i_episode}\tNew Action_std {action_std:.2f}')
             action_std = round(action_std, 5)
             ep_reward = test(action_std, env, policy,i_episode)
             print(f'Video reward: {ep_reward}')
