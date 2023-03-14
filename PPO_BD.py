@@ -330,7 +330,7 @@ def train_sweep(is_sweep=True):
         if i_episode % hparams['log_interval'] == 0:
             print(f'Episode {i_episode}\tLast reward: {ep_reward:.2f}\tAverage reward: {running_reward:.2f}\tAction standard deviation: {action_std:.2f}')
             print(f'We have trained for {counter} steps')
-            if running_reward > 2000:
+            if running_reward > 3000:
               torch.save(policy, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
               torch.save(optimizer, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
               wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
