@@ -34,7 +34,7 @@ FRAMERATE = 60  # Hz
 # Make a new camera, move it to a closer distance.
 camera = mujoco.MjvCamera()
 mujoco.mjv_defaultFreeCamera(model, camera)
-camera.distance = 3
+camera.distance = 5
 
 timevals = []
 q_position = []
@@ -70,23 +70,25 @@ while data.time < DURATION:
   # Set control vector array aproach
   ctrl=np.zeros(12)
   for i in range(4):
-    ctrl[(i*3)]=1
-    ctrl[(i*3)+2]=1
-  if data.time < 1: data.ctrl = ctrl*(0.2)
+    #ctrl[(i*3)]=1
+    ctrl[(i*3)+1]=1
+  if data.time < 5: data.ctrl = ctrl*(1)
   else: data.ctrl = 0
   
   # Step the simulation.
   mujoco.mj_step(model, data)
   
   timevals.append(data.time)
-  q_position.append(data.qpos[7:].copy())
+  q_position.append(data.qpos[2].copy())
+  print(data.qpos[2])
   q_velocity.append(data.qvel[8:].copy())
   sensordata.append(data.sensor('velocimeter').data.copy())
 
   # Render and save frames.
   if len(frames) < data.time * FRAMERATE:
     # Set the lookat point to the humanoid's center of mass.
-    camera.lookat = data.body('LH_SHANK').subtree_com
+    #camera.lookat = data.body('LH_SHANK').subtree_com
+    #camera.lookat = data.qpos[0]
 
     renderer.update_scene(data, camera)
     pixels = renderer.render()
