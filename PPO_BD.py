@@ -286,8 +286,8 @@ def train_sweep(is_sweep=True):
     eps = np.finfo(np.float32).eps.item()
     memory = ReplayMemory(hparams['replay_size'])
     
-    policy = torch.load('./blackberry-cake-73_5100_Reward-2591.22_policy.pt')
-    optimizer = torch.load('./blackberry-cake-73_5100_Reward-2591.22_optimizer.pt')
+    policy = torch.load('./glad-puddle-77_72_Reward-2820.98_policy.pt')
+    optimizer = torch.load('./glad-puddle-77_72_Reward-2820.98_optimizer.pt')
 
     action_std_decay = -(hparams['std_min']-hparams['std_init'])*hparams['log_interval']/hparams['num_episodes']
     action_std_init = hparams['std_init']
@@ -295,7 +295,8 @@ def train_sweep(is_sweep=True):
 
     # Training loop
     print("Target reward: 6000")
-    running_reward = -100    
+    running_reward = -100
+    saving_reward = 0
     for i_episode in range(hparams['num_episodes']):
         # Collect experience
         state, ep_reward, done = env.reset(), 0, False
@@ -336,11 +337,13 @@ def train_sweep(is_sweep=True):
             print(f'Video reward: {ep_reward}')
         
         if running_reward > 2800:
-              torch.save(policy, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
-              torch.save(optimizer, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
-              wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
-              wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
-              print(f'Policy and Optimizer have been saved')
+            if running_reward > saving_reward:
+                saving_reward = running_reward
+                torch.save(policy, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
+                torch.save(optimizer, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
+                wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
+                wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
+                print(f'Policy and Optimizer have been saved')
 
         if running_reward > 6000:
             print("Solved!")
