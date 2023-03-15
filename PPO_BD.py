@@ -330,16 +330,17 @@ def train_sweep(is_sweep=True):
         if i_episode % hparams['log_interval'] == 0:
             print(f'Episode {i_episode}\tLast reward: {ep_reward:.2f}\tAverage reward: {running_reward:.2f}\tAction standard deviation: {action_std:.5f}')
             print(f'We have trained for {counter} steps')
-            if running_reward > 1600:
+            action_std = action_std - action_std_decay
+            action_std = round(action_std, 5)
+            ep_reward = test(action_std, env, policy,i_episode)
+            print(f'Video reward: {ep_reward}')
+        
+        if running_reward > 2800:
               torch.save(policy, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
               torch.save(optimizer, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
               wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
               wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
               print(f'Policy and Optimizer have been saved')
-            action_std = action_std - action_std_decay
-            action_std = round(action_std, 5)
-            ep_reward = test(action_std, env, policy,i_episode)
-            print(f'Video reward: {ep_reward}')
 
         if running_reward > 6000:
             print("Solved!")
