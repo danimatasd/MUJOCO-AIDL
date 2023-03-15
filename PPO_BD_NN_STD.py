@@ -172,8 +172,8 @@ def train(policy, optimizer, memory, hparams):
     old_a_logp = torch.tensor(memory.buffer['a_logp'], dtype=torch.float).view(-1, 1)
 
     with torch.no_grad():
-        target_v = r + gamma * policy(s_)[1]
-        adv = target_v - policy(s)[1]
+        target_v = r + gamma * policy(s_)[2]
+        adv = target_v - policy(s)[2]
 
     for _ in range(ppo_epoch):
         for index in BatchSampler(SubsetRandomSampler(range(memory.buffer_capacity)), batch_size, False):
@@ -194,7 +194,7 @@ def train(policy, optimizer, memory, hparams):
             surr2 = torch.clamp(ratio,1-clip_param,1+clip_param) * adv[index]
 
             policy_loss = torch.min(surr1, surr2).mean()
-            value_loss = F.smooth_l1_loss(policy(s[index])[1], target_v[index])
+            value_loss = F.smooth_l1_loss(policy(s[index])[2], target_v[index])
             entropy = entropy.mean()
 
             loss = -policy_loss+c1*value_loss-c2*entropy
