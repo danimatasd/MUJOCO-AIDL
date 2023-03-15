@@ -44,21 +44,6 @@ class Agent(nn.Module):
             nn.Linear(128,64),
             nn.Tanh(),
             nn.Linear(64,1))
-        
-        '''
-        self.actor = nn.Sequential(
-            nn.Linear(128,64),
-            nn.Tanh(),
-            )
-        self.std = nn.Linear(64,act_len)
-        self.mean = nn.Linear(64,act_len)
-
-    def forward(self, state):
-        out = self.mlp(state)
-        action_scores = self.mean(self.actor(out))
-        action_std = self.std(self.actor(out))
-        state_value = self.critic(out)
-        return action_scores, action_std, state_value'''
 
     def forward(self, state):
         out = self.mlp(state)
@@ -248,12 +233,12 @@ def train_sweep(is_sweep=True):
     'lr' : 1e-4,
     'clip_param': 0.1,
     'ppo_epoch': 10,
-    'replay_size': 3200,
+    'replay_size': 6400,
     'batch_size': 128,
     'c1': 2.,
     'c2': 0.01,
-    'std_init': 0.999,
-    'std_min': 0.990,
+    'std_init': 0.98,
+    'std_min': 0.95,
     'video_interval': 200
     }
 
@@ -267,11 +252,6 @@ def train_sweep(is_sweep=True):
 
     # Fix random seed (for reproducibility)
     seed=0
-    
-#############################################################
-#################ATENTION!###################################
-#############################################################
-
     #random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)

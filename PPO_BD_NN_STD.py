@@ -258,7 +258,7 @@ def train_sweep(is_sweep=True):
     print(wandb.run.name)
 
     # Fix random seed (for reproducibility)
-    seed=0
+    seed=6
     #random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
