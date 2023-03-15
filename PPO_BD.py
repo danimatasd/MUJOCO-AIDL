@@ -243,7 +243,7 @@ def test(action_std ,env, policy, episode, render=False):
 def train_sweep(is_sweep=True):
     hparams = {
     'gamma' : 0.99,
-    'log_interval' : 100,
+    'log_interval' : 1000,
     'num_episodes': 50000,
     'lr' : 1e-4,
     'clip_param': 0.1,
@@ -252,7 +252,7 @@ def train_sweep(is_sweep=True):
     'batch_size': 128,
     'c1': 2.,
     'c2': 0.01,
-    'std_init': 0.998,
+    'std_init': 0.999,
     'std_min': 0.990,
     'video_interval': 200
     }
@@ -328,9 +328,9 @@ def train_sweep(is_sweep=True):
         running_reward = round(0.05 * ep_reward + (1 - 0.05) * running_reward,2)
         
         if i_episode % hparams['log_interval'] == 0:
-            print(f'Episode {i_episode}\tLast reward: {ep_reward:.2f}\tAverage reward: {running_reward:.2f}\tAction standard deviation: {action_std:.2f}')
+            print(f'Episode {i_episode}\tLast reward: {ep_reward:.2f}\tAverage reward: {running_reward:.2f}\tAction standard deviation: {action_std:.5f}')
             print(f'We have trained for {counter} steps')
-            if running_reward > 3000:
+            if running_reward > 1600:
               torch.save(policy, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
               torch.save(optimizer, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_optimizer.pt')
               wandb.save(f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
