@@ -17,7 +17,7 @@ from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler
 # if gpu is to be used
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-PROJECT = "AIDL-PPO-BD"
+PROJECT = "AIDL-PPO-BD-SWEEP"
 MUJOCO_STEPS = 5
 
 wandb.login()
@@ -225,33 +225,81 @@ def test(action_std ,env, policy, episode, render=False):
 
     return ep_reward
 
-def train_sweep(is_sweep=True):
-    hparams = {
-    'gamma' : 0.99,
-    'log_interval' : 1000,
-    'num_episodes': 50000,
-    'lr' : 1e-4,
-    'clip_param': 0.1,
-    'ppo_epoch': 10,
-    'replay_size': 6400,
-    'batch_size': 128,
-    'c1': 2.,
-    'c2': 0.01,
-    'std_init': 0.98,
-    'std_min': 0.95,
-    'video_interval': 200
+sweep_configuration = {
+    "name": f"ppo_sweep_0",
+    "method": 'bayes',
+    "metric": {
+        "name": "avg_reward",
+        "goal": "maximize"
+    },
+    "parameters": {
+        "lr": {
+          "distribution": "uniform",
+          "max": 0.001,
+          "min": 0.00001
+        },
+        "ppo_epoch": {
+          "distribution": "int_uniform",
+          "max": 30,
+          "min": 5
+        },
+        "c1": {
+          "distribution": "int_uniform",
+          "max": 3.,
+          "min": 1.
+        },
+        "c2": {
+          "distribution": "uniform",
+          "max": 0.05,
+          "min": 0.005
+        },
+        "replay_size": {
+          "distribution": "int_uniform",
+          "max": 8000.,
+          "min": 3200.
+        },
+        "std_init": {
+          "distribution": "uniform",
+          "max": 2.,
+          "min": 0.5
+        },
+        "std_min": {
+          "distribution": "uniform",
+          "max": 0.8,
+          "min": 0.1
+        }
     }
+  }
 
-    run = wandb.init(project=PROJECT, save_code=True)
+def train_sweep(is_sweep=True):
+  
+    hparams = {
+      'gamma' : 0.99,
+      'log_interval' : 1000,
+      'num_episodes': 10000,
+      'lr' : 1e-4,
+      'clip_param': 0.1,
+      'ppo_epoch': 15,
+      'replay_size': 6400,
+      'batch_size': 128,
+      'c1': 2.,
+      'c2': 0.015,
+      'std_init': 1.5,
+      'std_min': 0.95,
+      }
+    
+    wandb.init(project=PROJECT)        
+
     if is_sweep:
       hparams.update(wandb.config)
+      print('Params updated')
+      
     # Create environment
     env = Env()
-
-    print(wandb.run.name)
+    #print(wandb.run.name)
 
     # Fix random seed (for reproducibility)
-    seed=0
+    seed=4
     #random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
@@ -266,8 +314,8 @@ def train_sweep(is_sweep=True):
     eps = np.finfo(np.float32).eps.item()
     memory = ReplayMemory(hparams['replay_size'])
     
-    policy = torch.load('./glad-puddle-77_72_Reward-2820.98_policy.pt')
-    optimizer = torch.load('./glad-puddle-77_72_Reward-2820.98_optimizer.pt')
+    #policy = torch.load('./magic-sponge-79_20436_Reward-3049.75_policy.pt')
+    #optimizer = torch.load('./magic-sponge-79_20436_Reward-3049.75_optimizer.pt')
 
     action_std_decay = -(hparams['std_min']-hparams['std_init'])*hparams['log_interval']/hparams['num_episodes']
     action_std_init = hparams['std_init']
@@ -316,7 +364,7 @@ def train_sweep(is_sweep=True):
             ep_reward = test(action_std, env, policy,i_episode)
             print(f'Video reward: {ep_reward}')
         
-        if running_reward > 2800:
+        if running_reward > 2500:
             if running_reward > saving_reward:
                 saving_reward = running_reward
                 torch.save(policy, f'./{wandb.run.name}_{i_episode}_Reward-{running_reward}_policy.pt')
@@ -335,4 +383,7 @@ def train_sweep(is_sweep=True):
 
     print(f"Finished training! Running reward is now {running_reward}")
 
-train_sweep(False)
+#train_sweep(False)
+
+sweep_id = wandb.sweep(sweep=sweep_configuration, project=PROJECT)
+wandb.agent(sweep_id, function=train_sweep, count=50, project=PROJECT)
