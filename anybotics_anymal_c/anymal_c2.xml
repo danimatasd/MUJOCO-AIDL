@@ -313,8 +313,7 @@
       </body>
     </body>
     <body>
-      <joint/>
-      <geom name="green_sphere" pos="0 .2 .2" size=".1" rgba="0 1 0 1"/>
+      <geom name="Step" type="box" pos="3.5 0 0" size="2 1 .1" rgba="1 0 0 1"/>
     </body>
   </worldbody>
 

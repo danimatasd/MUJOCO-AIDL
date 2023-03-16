@@ -19,7 +19,7 @@ np.set_printoptions(precision=3, suppress=True, linewidth=100)
 
 print('Get current working directory : ', os.getcwd())
 
-model = mujoco.MjModel.from_xml_path("./anybotics_anymal_c/scene.xml")
+model = mujoco.MjModel.from_xml_path("./anybotics_anymal_c/scene2.xml")
 data = mujoco.MjData(model)
 renderer=mujoco.Renderer(model)
 
@@ -34,7 +34,7 @@ FRAMERATE = 60  # Hz
 # Make a new camera, move it to a closer distance.
 camera = mujoco.MjvCamera()
 mujoco.mjv_defaultFreeCamera(model, camera)
-camera.distance = 5
+camera.distance = 6
 
 timevals = []
 q_position = []
@@ -72,7 +72,7 @@ while data.time < DURATION:
   for i in range(4):
     #ctrl[(i*3)]=1
     ctrl[(i*3)+1]=1
-  if data.time < 5: data.ctrl = ctrl*(1)
+  if data.time < 5: data.ctrl = ctrl*(-1)
   else: data.ctrl = 0
   
   # Step the simulation.
@@ -80,9 +80,9 @@ while data.time < DURATION:
   
   timevals.append(data.time)
   q_position.append(data.qpos[2].copy())
-  print(data.qpos[2])
+  #print(data.qpos[2])
   q_velocity.append(data.qvel[8:].copy())
-  sensordata.append(data.sensor('velocimeter').data.copy())
+  #sensordata.append(data.sensor('velocimeter').data.copy())
 
   # Render and save frames.
   if len(frames) < data.time * FRAMERATE:
@@ -96,6 +96,7 @@ while data.time < DURATION:
 
 media.show_video(frames, fps=FRAMERATE)
 
+'''
 dpi = 120
 width = 600
 height = 800
@@ -113,3 +114,4 @@ ax[1].plot(timevals, sensordata)
 ax[1].set_xlabel('time (seconds)')
 ax[1].set_ylabel('sensor velocity')
 _ = ax[1].set_title('sensor velocity')
+'''
