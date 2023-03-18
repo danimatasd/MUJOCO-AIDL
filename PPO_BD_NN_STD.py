@@ -48,14 +48,14 @@ class Agent(nn.Module):
         
         self.std = nn.Sequential(
             nn.Linear(64,act_len),
-            nn.Sigmoid())
+            nn.ReLU())
         self.mean = nn.Linear(64,act_len)
 
     def forward(self, state):
         out = self.mlp(state)
         action_scores = self.mean(self.actor(out))
         action_std = self.std(self.actor(out))
-        m = nn.Threshold(0.00001,0.00001)
+        m = nn.Threshold(0.01,0.01)
         action_std = m(action_std)
         state_value = self.critic(out)
         return action_scores, action_std, state_value
@@ -242,7 +242,7 @@ def train_sweep(is_sweep=True):
     'num_episodes': 50000,
     'lr' : 1e-4,
     'clip_param': 0.1,
-    'ppo_epoch': 10,
+    'ppo_epoch': 20,
     'replay_size': 6400,
     'batch_size': 128,
     'c1': 2.,
@@ -258,7 +258,7 @@ def train_sweep(is_sweep=True):
     print(wandb.run.name)
 
     # Fix random seed (for reproducibility)
-    seed=6
+    seed=8
     #random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
@@ -313,8 +313,8 @@ def train_sweep(is_sweep=True):
         if i_episode % hparams['log_interval'] == 0:
             print(f'Episode {i_episode}\tLast reward: {ep_reward:.2f}\tAverage reward: {running_reward:.2f}')
             print(f'We have trained for {counter} steps')
-            ep_reward = test(env, policy,i_episode)
-            print(f'Video reward: {ep_reward}')
+            #ep_reward = test(env, policy,i_episode)
+            #print(f'Video reward: {ep_reward}')
         
         if running_reward > 2800:
             if running_reward > saving_reward:
