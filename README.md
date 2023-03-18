@@ -19,26 +19,26 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 
 1. [How To Run](#how-to-run)
 2. [Introduction To Reinforcement Learning](#intro-to-rl)
-3. [MuJoCo](#mujoco)
-4. [Computational Resources](#comp-res)
-5. [Proximal Policy Optimization (PPO)](#ppo)
-6. [Half Cheetah](#halfcheetah)
-    1. [Overview](#overview1)
-    2. [Architecture](#architecture1)
-    3. [Results](#results1)
-    4. [Conclusions](#conclusions1)
-7. [ANYmal C](#anymal-c)
-    1. [Overview](#overview2)
-    2. [Architecture](#architecture2)
-    3. [Results](#results2)
-    4. [Conclusions](#conclusions2)
-8. [Final Conclusions](#final-conclusions)
-9. [References](#references)
+3. [Proximal Policy Optimization (PPO)](#ppo)
+4. [MuJoCo](#mujoco)
+    1. [Half Cheetah](#halfcheetah)
+        1. [Overview](#overview1)
+        2. [Architecture](#architecture1)
+        3. [Milestones](#milestones1)
+        4. [Results](#results1)
+        5. [Conclusions](#conclusions1)
+    2. [ANYmal C](#anymal-c)
+        1. [Overview](#overview2)
+        2. [Architecture](#architecture2)
+        3. [Milestones](#milestones2)
+        4. [Results](#results2)
+        5. [Conclusions](#conclusions2)
+5. [Final Conclusions](#final-conclusions)
+6. [Computational Resources](#comp-res)
 
 ## How To Run <a name="how-to-run"></a>
 
 In order to run the code, execute ```pip install -r requirements.txt``` aaaaa ```ok```
-
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
 
@@ -49,16 +49,6 @@ as to maximize a numerical reward signal. The learner is not told which actions 
 take, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning." — Richard S. Sutton and Andrew G. Barto [^1]
 
 [^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
-
-## MuJoCo <a name="mujoco"></a>
-
-[MuJoCo](https://mujoco.org/) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
-
-Initially developed by *Roboti LLC*, it was acquired and made freely available by *DeepMind* in October 2021, and open sourced in May 2022.
-
-<p align="center">
-    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
-</p>
 
 ## PPO <a name="ppo"></a>
 
@@ -92,23 +82,17 @@ As a policy-based algorithm, PPO is well-suited for tasks with continuous action
 
 Given the complexity of our model, which involves multiple joints and actions, we decided to utilize this algorithm for our project.
 
-## Computational Resources <a name="comp-res"></a>
+## MuJoCo <a name="mujoco"></a>
 
-For the development of this project we have mainly used Google Colab; also a desktop PC with better specs to speed up the trainings of our models.
+[MuJoCo](https://mujoco.org/) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
 
-Here are the specifications of the machines:
+Initially developed by *Roboti LLC*, it was acquired and made freely available by *DeepMind* in October 2021, and open sourced in May 2022.
 
-* Google Colab
-    * Intel Xeon @ 2.20GHz
-    * 12GB RAM
-    * NVIDIA Tesla K80 12GB GDDR5
+<p align="center">
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
+</p>
 
-* Desktop PC
-    * AMD Ryzen 7 5800H @ 3.20 GHz
-    * 16GB RAM
-    * NVIDIA GeForce RTX 3070 8GB GDDR6
-
-## Half Cheetah <a name="half-cheetah"></a>
+## Half Cheetah <a name="halfcheetah"></a>
 
 ### Overview <a name="overview1"></a>
 
@@ -129,6 +113,8 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
     self.actor = nn.Linear(128, act_len)
 
     self.critic = nn.Linear(128, 1)
+
+### Milestones <a name="milestones1"></a>
 
 ### Results <a name="results1"></a>
 
@@ -163,6 +149,8 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
         nn.Tanh(),
         nn.Linear(64,1))
 
+### Milestones <a name="milestones2"></a>
+
 ### Results <a name="results2"></a>
 
 ### Conclusions <a name="conclusions2"></a>
@@ -170,4 +158,18 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 
 ## Final Conclusions <a name="final-conclusions"></a>
 
-## References <a name="references"></a>
+## Computational Resources <a name="comp-res"></a>
+
+For the development of this project we have mainly used Google Colab; also a laptop with better specs to speed up the trainings of our models.
+
+Here are the specifications of the machines:
+
+* Google Colab
+    * Intel Xeon @ 2.20GHz
+    * 12GB RAM
+    * NVIDIA Tesla K80 12GB GDDR5
+
+* Laptop
+    * AMD Ryzen 7 5800H @ 3.20 GHz
+    * 16GB RAM
+    * NVIDIA GeForce RTX 3070 8GB GDDR6
