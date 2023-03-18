@@ -113,7 +113,9 @@ Here are the specifications of the machines:
 
 The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints connecting them (including two paws). The goal is to apply a torque on the joints to make the cheetah run forward (right) as fast as possible, with a positive reward allocated based on the distance moved forward and a negative reward allocated for moving backward. The torso and head of the cheetah are fixed, and the torque can only be applied on the other 6 joints over the front and back thighs (connecting to the torso), shins (connecting to the thighs) and feet (connecting to the shins).
 
-![Half Cheetah](https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true)
+<p align="center">
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true">
+</p>
 
 ### Architecture <a name="architecture1"></a>
 
@@ -131,12 +133,15 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 
 ### Conclusions <a name="conclusions1"></a>
 
-## Anybotics ANYmal C <a name="anymal-c"></a>
 
+## Anybotics ANYmal C <a name="anymal-c"></a>
 
 ### Overview <a name="overview2"></a>
 
-![ANYmal C](https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Anybotics%20ANYmal%20C.jpg?raw=true)
+<p align="center">
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Anybotics%20ANYmal%20C.jpg?raw=true">
+</p>
+
 <font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
 
 ### Architecture <a name="architecture2"></a>
@@ -160,6 +165,7 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 ### Results <a name="results2"></a>
 
 ### Conclusions <a name="conclusions2"></a>
+
 
 ## Final Conclusions <a name="final-conclusions"></a>
 
