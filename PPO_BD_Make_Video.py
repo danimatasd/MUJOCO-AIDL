@@ -123,7 +123,7 @@ class Env():
       return state, reward, self.done
 
     def close(self,episode):
-      path=f'./video_{episode+1}.mp4'
+      path=f'./video_{episode}.mp4'
       media.write_video(path, self.frames, fps=self.FRAMERATE)
 
 def test(action_std ,env, policy, num_video, render=False):
@@ -160,7 +160,7 @@ def make_video():
   
   hparams = {
       'num_videos': 10,
-      'std_init': 0.000000001,
+      'std_init': 0.85820,
       }
   
   wandb.init(project=PROJECT)
@@ -180,8 +180,7 @@ def make_video():
   # Create policy and optimizer
   policy = Agent(n_inputs, n_actions)
     
-  policy = torch.load('./skilled-sweep-1_9015_Reward-3180.37_policy.pt')
-  optimizer = torch.load('./skilled-sweep-1_9015_Reward-3180.37_optimizer.pt')
+  policy = torch.load('./colorful-wood-15_35414_Reward-6036.56_policy.pt')
 
   action_std = hparams['std_init']
   
