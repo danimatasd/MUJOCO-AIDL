@@ -37,7 +37,7 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 
 ## How To Run <a name="how-to-run"></a>
 
-```pip install -r requirements.txt``` aaaaa ```ok```
+In order to run the code, execute ```pip install -r requirements.txt``` aaaaa ```ok```
 
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
@@ -57,7 +57,7 @@ take, but instead must discover which actions yield the most reward by trying th
 Initially developed by *Roboti LLC*, it was acquired and made freely available by *DeepMind* in October 2021, and open sourced in May 2022.
 
 <p align="center">
-    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=35%>
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
 </p>
 
 ## PPO <a name="ppo"></a>
