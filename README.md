@@ -19,7 +19,7 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 * JuanJo Nieto
 
 ## Index
-___
+
 1. [Introduction To Reinforcement Learning](#intro-to-rl)
 2. [MuJoCo](#mujoco)
 3. [Computational Resources](#comp-res)
@@ -35,7 +35,7 @@ ___
 
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
-___
+
 Reinforcement Learning is an area of Machine Learning concerned with how intelligent agents ought to take actions in an environment based on rewarding desired behaviors and/or punishing undesired ones. 
  
 > "Reinforcement learning is learning what to do—how to map situations to actions—so
@@ -45,7 +45,7 @@ take, but instead must discover which actions yield the most reward by trying th
 [^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 
 ## MuJoCo <a name="mujoco"></a>
-___
+
 
 > [MuJoCo](https://mujoco.org/) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
 
@@ -54,7 +54,7 @@ Initially developed by *Roboti LLC*, it was acquired and made freely available b
 <center><em><img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=35%></em></center>
 
 ## PPO <a name="ppo"></a>
-___
+
 
 Proximal Policy Optimization (PPO) is considered the state-of-the-art in 
 Reinforcement Learning, and it consists of a policy gradient method whose main
@@ -87,7 +87,7 @@ As a policy-based algorithm, PPO is well-suited for tasks with continuous action
 Given the complexity of our model, which involves multiple joints and actions, we decided to utilize this algorithm for our project.
 
 ## Computational Resources <a name="comp-res"></a>
-___
+
 For the development of this project we have mainly used Google Colab; also a desktop PC with better specs to speed up the trainings of our models.
 
 Here are the specifications of the machines:
@@ -103,10 +103,10 @@ Here are the specifications of the machines:
     * NVIDIA GeForce RTX 3070 8GB GDDR6
 
 ## How To Run <a name="how-to-run"></a>
-___
+
 
 ## Half Cheetah <a name="half-cheetah"></a>
-___
+
 
 ### Overview <a name="overview1"></a>
 
@@ -117,7 +117,7 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 ### Architecture <a name="architecture1"></a>
 
 ## Anybotics ANYmal C <a name="anymal-c"></a>
-___
+
 
 ### Overview <a name="overview2"></a>
 
