@@ -1,8 +1,8 @@
 # Deep RL With MuJoCo
 
-Final project for the 2023-winter's edition of the UPC's *Artificial Intelligence with Deep Learning* postgraduate course.
+Final project for the 2023-winter's edition of the *Artificial Intelligence with Deep Learning* postgraduate course run by the Universitat Politècnica de Catalunya (UPC).
 
-The goal of this project is to train diverse AI models to perform tasks using (Deep) Reinforcement Learning in the MuJoCo physics simulator.
+The goal of this project is to train diverse AI models to perform tasks using (Deep) Reinforcement Learning in the MuJoCo physics simulator:rocket:.
 
 ### Team Members
 
