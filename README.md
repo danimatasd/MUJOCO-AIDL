@@ -36,7 +36,8 @@ ___
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
 ___
-Reinforcement Learning is an area of Machine Learning concerned with how intelligent agents ought to take actions in an environment based on rewarding desired behaviors and/or punishing undesired ones.  
+Reinforcement Learning is an area of Machine Learning concerned with how intelligent agents ought to take actions in an environment based on rewarding desired behaviors and/or punishing undesired ones. 
+ 
 > "Reinforcement learning is learning what to do—how to map situations to actions—so
 as to maximize a numerical reward signal. The learner is not told which actions to
 take, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning." — Richard S. Sutton and Andrew G. Barto [^1]
@@ -50,7 +51,7 @@ ___
 
 Initially developed by *Roboti LLC*, it was acquired and made freely available by *DeepMind* in October 2021, and open sourced in May 2022.
 
-<center><em><img src="https://file%2B.vscode-resource.vscode-cdn.net/Users/adro/aidl_postgrad/MUJOCO-AIDL/misc/example_mujoco.gif?version%3D1679142700486" width=35%></em></center>
+<center><em><img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=35%></em></center>
 
 ## PPO <a name="ppo"></a>
 ___
@@ -111,7 +112,7 @@ ___
 
 The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints connecting them (including two paws). The goal is to apply a torque on the joints to make the cheetah run forward (right) as fast as possible, with a positive reward allocated based on the distance moved forward and a negative reward allocated for moving backward. The torso and head of the cheetah are fixed, and the torque can only be applied on the other 6 joints over the front and back thighs (connecting to the torso), shins (connecting to the thighs) and feet (connecting to the shins).
 
-![Half Cheetah](https://file%2B.vscode-resource.vscode-cdn.net/Users/adro/aidl_postgrad/MUJOCO-AIDL/misc/half_cheetah.gif?version%3D1679135747637)
+![Half Cheetah](https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true)
 
 ### Architecture <a name="architecture1"></a>
 
@@ -120,7 +121,7 @@ ___
 
 ### Overview <a name="overview2"></a>
 
-![ANYmal C](https://file%2B.vscode-resource.vscode-cdn.net/Users/adro/aidl_postgrad/MUJOCO-AIDL/misc/Anybotics%20ANYmal%20C.jpg?version%3D1679135711238)
+![ANYmal C](https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Anybotics%20ANYmal%20C.jpg?raw=true)
 <font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
 
 ### Architecture <a name="architecture2"></a>
