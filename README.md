@@ -7,11 +7,8 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 ### Team Members
 
 * Adrià De Angulo
-
 * Daniel Matas
-
 * Hariss Farhan
-
 * Miquel Quesada
 
 ### Project Advisor
@@ -20,19 +17,27 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 
 ## Index
 
-1. [Introduction To Reinforcement Learning](#intro-to-rl)
-2. [MuJoCo](#mujoco)
-3. [Computational Resources](#comp-res)
-4. [How To Run](#how-to-run)
+1. [How To Run](#how-to-run)
+2. [Introduction To Reinforcement Learning](#intro-to-rl)
+3. [MuJoCo](#mujoco)
+4. [Computational Resources](#comp-res)
 5. [Proximal Policy Optimization (PPO)](#ppo)
 6. [Half Cheetah](#halfcheetah)
     1. [Overview](#overview1)
-    2. [Architecture](architecture1)
+    2. [Architecture](#architecture1)
+    3. [Results](#results1)
+    4. [Conclusions](#conclusions1)
 7. [ANYmal C](#anymal-c)
     1. [Overview](#overview2)
-    2. [Architecture](architecture2)
+    2. [Architecture](#architecture2)
+    3. [Results](#results2)
+    4. [Conclusions](#conclusions2)
+8. [Final Conclusions](#final-conclusions)
+9. [References](#references)
 
+## How To Run <a name="how-to-run"></a>
 
+xxxxx
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
 
@@ -46,15 +51,15 @@ take, but instead must discover which actions yield the most reward by trying th
 
 ## MuJoCo <a name="mujoco"></a>
 
-
-> [MuJoCo](https://mujoco.org/) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
+[MuJoCo](https://mujoco.org/) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
 
 Initially developed by *Roboti LLC*, it was acquired and made freely available by *DeepMind* in October 2021, and open sourced in May 2022.
 
-<center><em><img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=35%></em></center>
+<p align="center">
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=35%>
+</p>
 
 ## PPO <a name="ppo"></a>
-
 
 Proximal Policy Optimization (PPO) is considered the state-of-the-art in 
 Reinforcement Learning, and it consists of a policy gradient method whose main
@@ -102,11 +107,7 @@ Here are the specifications of the machines:
     * 16GB RAM
     * NVIDIA GeForce RTX 3070 8GB GDDR6
 
-## How To Run <a name="how-to-run"></a>
-
-
 ## Half Cheetah <a name="half-cheetah"></a>
-
 
 ### Overview <a name="overview1"></a>
 
@@ -115,6 +116,20 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 ![Half Cheetah](https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true)
 
 ### Architecture <a name="architecture1"></a>
+
+    self.mlp = nn.Sequential(
+        nn.Linear(obs_len, 64),
+        nn.Tanh(),
+        nn.Linear(64, 128),
+        nn.Tanh())
+
+    self.actor = nn.Linear(128, act_len)
+
+    self.critic = nn.Linear(128, 1)
+
+### Results <a name="results1"></a>
+
+### Conclusions <a name="conclusions1"></a>
 
 ## Anybotics ANYmal C <a name="anymal-c"></a>
 
@@ -125,3 +140,27 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 <font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
 
 ### Architecture <a name="architecture2"></a>
+
+    self.mlp = nn.Sequential(
+        nn.Linear(obs_len, 128),
+        nn.Tanh(),
+        nn.Linear(128, 128),
+        nn.Tanh())
+
+    self.actor = nn.Sequential(
+        nn.Linear(128,64),
+        nn.Tanh(),
+        nn.Linear(64,act_len))
+
+    self.critic = nn.Sequential(
+        nn.Linear(128,64),
+        nn.Tanh(),
+        nn.Linear(64,1))
+
+### Results <a name="results2"></a>
+
+### Conclusions <a name="conclusions2"></a>
+
+## Final Conclusions <a name="final-conclusions"></a>
+
+## References <a name="references"></a>
