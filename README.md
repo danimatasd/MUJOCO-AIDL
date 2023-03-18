@@ -37,7 +37,8 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 
 ## How To Run <a name="how-to-run"></a>
 
-xxxxx
+```pip install -r requirements.txt``` aaaaa ```ok```
+
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
 
