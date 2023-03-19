@@ -84,9 +84,9 @@ Given the complexity of our model, which involves multiple joints and actions, w
 
 ## MuJoCo <a name="mujoco"></a>
 
-[MuJoCo](https://mujoco.org/) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
+ [MuJoCo](https://mujoco.org/) (which stands for Multi-Joint dynamics with Contact) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
 
-Initially developed by *Roboti LLC*, it was acquired and made freely available by *DeepMind* in October 2021, and open sourced in May 2022.
+Initially developed by Roboti LLC, it was acquired and made freely available by DeepMind in October 2021, and open sourced in May 2022.
 
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
@@ -125,6 +125,8 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 
 ### Overview <a name="overview2"></a>
 
+The ANYmal C is a quadruped robot used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments.
+
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Anybotics%20ANYmal%20C.jpg?raw=true">
 </p>
@@ -160,7 +162,11 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 
 ## Computational Resources <a name="comp-res"></a>
 
-For the development of this project we have mainly used Google Colab; also a laptop with better specs to speed up the trainings of our models.
+As the neural networks that we used were pretty small, we didn't find ourselves in the need of using GPUs for the training of our models (we would have spent more time passing the parameters to the GPU than doing the actual calculations in the CPU). 
+
+To add on that, MuJoCo runs only on CPU and has no GPU support currently, so the only use case for GPUs in our project has been the render and capture of the videos.
+
+Given this situation, for the development of this project, we have mainly used Google Colab, and when we needed to do longer trainings, a laptop with better specs to speed up the process a little bit.
 
 Here are the specifications of the machines:
 
@@ -173,3 +179,4 @@ Here are the specifications of the machines:
     * AMD Ryzen 7 5800H @ 3.20 GHz
     * 16GB RAM
     * NVIDIA GeForce RTX 3070 8GB GDDR6
+
