@@ -92,9 +92,9 @@ Initially developed by Roboti LLC, it was acquired and made freely available by 
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
 </p>
 
-## Half Cheetah <a name="halfcheetah"></a>
+### Half Cheetah <a name="halfcheetah"></a>
 
-### Overview <a name="overview1"></a>
+#### Overview <a name="overview1"></a>
 
 The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints connecting them (including two paws). The goal is to apply a torque on the joints to make the cheetah run forward (right) as fast as possible, with a positive reward allocated based on the distance moved forward and a negative reward allocated for moving backward. The torso and head of the cheetah are fixed, and the torque can only be applied on the other 6 joints over the front and back thighs (connecting to the torso), shins (connecting to the thighs) and feet (connecting to the shins).
 
@@ -102,7 +102,7 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true">
 </p>
 
-### Architecture <a name="architecture1"></a>
+#### Architecture <a name="architecture1"></a>
 
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 64),
@@ -114,16 +114,16 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 
     self.critic = nn.Linear(128, 1)
 
-### Milestones <a name="milestones1"></a>
+#### Milestones <a name="milestones1"></a>
 
-### Results <a name="results1"></a>
+#### Results <a name="results1"></a>
 
-### Conclusions <a name="conclusions1"></a>
+#### Conclusions <a name="conclusions1"></a>
 
 
-## Anybotics ANYmal C <a name="anymal-c"></a>
+### Anybotics ANYmal C <a name="anymal-c"></a>
 
-### Overview <a name="overview2"></a>
+#### Overview <a name="overview2"></a>
 
 The ANYmal C is a quadruped robot used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments.
 
@@ -133,7 +133,7 @@ The ANYmal C is a quadruped robot used for inspection of industrial facilities. 
 
 <font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
 
-### Architecture <a name="architecture2"></a>
+#### Architecture <a name="architecture2"></a>
 
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 128),
@@ -151,11 +151,11 @@ The ANYmal C is a quadruped robot used for inspection of industrial facilities. 
         nn.Tanh(),
         nn.Linear(64,1))
 
-### Milestones <a name="milestones2"></a>
+#### Milestones <a name="milestones2"></a>
 
-### Results <a name="results2"></a>
+#### Results <a name="results2"></a>
 
-### Conclusions <a name="conclusions2"></a>
+#### Conclusions <a name="conclusions2"></a>
 
 
 ## Final Conclusions <a name="final-conclusions"></a>
