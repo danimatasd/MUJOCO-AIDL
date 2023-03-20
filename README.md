@@ -24,13 +24,15 @@ The goal of this project is to train several AI models to perform tasks using (D
     1. [Half Cheetah](#halfcheetah)
         1. [Overview](#overview1)
         2. [Architecture](#architecture1)
-        3. [Results](#results1)
-        4. [Conclusions](#conclusions1)
+        3. [Hyperparameters](#hyperparameters1)
+        4. [Results](#results1)
+        5. [Conclusions](#conclusions1)
     2. [ANYmal C](#anymal-c)
         1. [Overview](#overview2)
         2. [Architecture](#architecture2)
-        3. [Results](#results2)
-        4. [Conclusions](#conclusions2)
+        3. [Hyperparameters](#hyperparameters2)
+        4. [Results](#results2)
+        5. [Conclusions](#conclusions2)
 6. [Future Work](#future-work)
 7. [Computational Resources](#comp-res)
 
@@ -106,7 +108,7 @@ Given the complexity of our model, which involves multiple joints and actions, w
 
  [MuJoCo](https://mujoco.org/) (which stands for Multi-Joint dynamics with Contact) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
 
-Initially developed by Roboti LLC, it was acquired and made freely available by DeepMind in October 2021, and open sourced in May 2022.
+Initially developed by Roboti LLC, it was acquired and made freely available by [DeepMind](https://www.deepmind.com/) in October 2021, and open sourced in May 2022.
 
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
@@ -116,7 +118,8 @@ Initially developed by Roboti LLC, it was acquired and made freely available by 
 
 ### Overview <a name="overview1"></a>
 
-The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints connecting them (including two paws). The goal is to apply a torque on the joints to make the cheetah run forward (right) as fast as possible, with a positive reward allocated based on the distance moved forward and a negative reward allocated for moving backward. The torso and head of the cheetah are fixed, and the torque can only be applied on the other 6 joints over the front and back thighs (connecting to the torso), shins (connecting to the thighs) and feet (connecting to the shins).
+Half Cheetah is an [OpenAI](https://openai.com/)'s [Gym](https://www.gymlibrary.dev/) environment created to be used in MuJoCo.
+The Half Cheetah is a 2-dimensional robot consisting of 9 links and 8 joints connecting them (including two paws). The goal is to apply a torque on the joints to make the cheetah run forward (right) as fast as possible, with a positive reward allocated based on the distance moved forward and a negative reward allocated for moving backward. The torso and head of the cheetah are fixed, and the torque can only be applied on the other 6 joints over the front and back thighs (connecting to the torso), shins (connecting to the thighs) and feet (connecting to the shins).
 
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true">
@@ -142,7 +145,28 @@ Tenemos 6 acciones que van de -1 a 1
 
     self.critic = nn.Linear(128, 1)
 
+### Hyperparameters <a name="hyperparameters1"></a>
+
+We performed several hyperparameter sweeps in order to find the best ones
+
+    hparams = {
+        'gamma' : 0.99,
+        'log_interval' : 10,
+        'num_episodes': 50000,
+        'lr' : 1e-4,
+        'clip_param': 0.1,
+        'ppo_epoch': 45,
+        'replay_size': 600,
+        'batch_size': 128,
+        'c1': 3.,
+        'c2': 0.01,
+        'std_init': 1.0,
+        'video_interval': 200
+    }
+
 ### Results <a name="results1"></a>
+
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_1000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_2000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_3000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_3908.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_5006.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_5734.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_-304.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_-506_Final.gif">
 
 ### Conclusions <a name="conclusions1"></a>
 
@@ -189,7 +213,9 @@ The output of the multilayer perceptron is passed as input to both the actor and
 
 The actor, is responsible for producing the policy distribution over actions, whereas the critic  is responsible for estimating the state value function, which is the expected return starting from the current state. 
 
-As you can see, the architecture follows a common pattern in reinforcement learning called the actor-critic method. The actor network generates a policy distribution over actions, while the critic network estimates the value of each state or state-action pair. The actor uses the critic's estimates to improve the policy, while the critic learns to predict the expected returns accurately. 
+As you can see, the architecture follows a common pattern in reinforcement learning called the actor-critic method. The actor network generates a policy distribution over actions, while the critic network estimates the value of each state or state-action pair. The actor uses the critic's estimates to improve the policy, while the critic learns to predict the expected returns accurately.
+
+### Hyperparameters <a name="hyperparameters2"></a>
 
 ### Results <a name="results2"></a>
 
