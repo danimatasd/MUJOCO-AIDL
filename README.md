@@ -2,7 +2,7 @@
 
 Final project for the 2023-winter's edition of the *Artificial Intelligence with Deep Learning* postgraduate course taught by the Universitat Politècnica de Catalunya (UPC).
 
-The goal of this project is to train diverse AI models to perform tasks using (Deep) Reinforcement Learning in the MuJoCo physics simulator.
+The goal of this project is to train several AI models to perform tasks using (Deep) Reinforcement Learning in the MuJoCo physics simulator.
 
 ### Team Members
 
@@ -33,17 +33,33 @@ The goal of this project is to train diverse AI models to perform tasks using (D
         3. [Milestones](#milestones2)
         4. [Results](#results2)
         5. [Conclusions](#conclusions2)
-5. [Final Conclusions](#final-conclusions)
 6. [Future Work](#future-work)
 7. [Computational Resources](#comp-res)
 
 ## How To Run <a name="how-to-run"></a>
 
-In order to run the code:
+In order to speed up the trainings of our models we have separated the video capture part of the code from the actual training code.
 
-1. Download the ________ and _________ files 
-2. Open the files in [Google Colab](https://colab.research.google.com/)
-3. Execute the cells
+The easiest way to run the project is via Google Colab. Here you will find direct links to the notebooks. Open them and execute the cells.
+
+Alternatively we have also included a folder with the python files in case you want to download the code and use it in your machine. Note that prior adaptation of the code to your machine will be needed beforehand.
+
+* Half Cheetah (PPO)
+
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/SWEEP_RL_PPO_HALFCHEETAH.ipynb)
+
+* Half Cheetah (Video Capture)
+
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/RL_PPO_HALFCHEETAH_VIDEO.ipynb)
+
+* ANYmal C (PPO)
+
+        ==PENDING==
+
+* ANYmal C (Video Capture)
+
+        ==PENDING==
+
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
 
@@ -208,8 +224,6 @@ Based on the given information, we draw a series of conclusions:
 2. The algorithm improved the model's walking performance over time, as evidenced by the videos, with a maximum reward of 5925.51 achieved during training.
 
 3. The entropy started at 17.025 and went down to 14.564 in 20.3 hours, which suggests that the policy became more deterministic as the training progressed.
-
-## Final Conclusions <a name="final-conclusions"></a>
 
 ## Future Work <a name="future-work"></a>
 
