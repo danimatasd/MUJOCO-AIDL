@@ -1,6 +1,6 @@
 # Deep RL With MuJoCo
 
-Final project for the 2023-winter's edition of the *Artificial Intelligence with Deep Learning* postgraduate course run by the Universitat Politècnica de Catalunya (UPC).
+Final project for the 2023-winter's edition of the *Artificial Intelligence with Deep Learning* postgraduate course taught by the Universitat Politècnica de Catalunya (UPC).
 
 The goal of this project is to train diverse AI models to perform tasks using (Deep) Reinforcement Learning in the MuJoCo physics simulator.
 
@@ -41,7 +41,7 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 
 In order to run the code:
 
-1. Download the PPO_BD_NN_STD.py and _________ files 
+1. Download the ________ and _________ files 
 2. Open the files in [Google Colab](https://colab.research.google.com/)
 3. Execute the cells
 
@@ -172,6 +172,10 @@ We have added one hidden layer more than in the half cheetah environment and we 
 
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif">
 
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Step_Crash.gif">
+
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Step_Crash_and_Recovery.gif">
+
 #### Conclusions <a name="conclusions2"></a>
 
 
@@ -185,7 +189,7 @@ As the neural networks that we used were pretty small, we didn't find ourselves 
 
 To add on that, MuJoCo runs only on CPU and has no GPU support currently, so the only use case for GPUs in our project has been the render and capture of the videos.
 
-Given this situation, for the development of this project, we have mainly used Google Colab, and when we needed to do longer trainings, a laptop with better specs to speed up the process a little bit.
+Given this situation, for the development of this project, we have mainly used Google Colab, and when we needed to do longer trainings, two laptops with better specs to speed up the process a little bit (and also don't get kicked out from the runtime).
 
 Here are the specifications of the machines:
 
@@ -194,8 +198,12 @@ Here are the specifications of the machines:
     * 12GB RAM
     * NVIDIA Tesla K80 12GB GDDR5
 
-* Laptop
+* Laptop #1
     * AMD Ryzen 7 5800H @ 3.20GHz
     * 16GB RAM
     * NVIDIA GeForce RTX 3070 8GB GDDR6
 
+* Laptop #2
+    * INTEL Core i7-9750H @ 2.60 GHz
+    * 8GB RAM
+    * NVIDIA GeForce GTX 1050 4GB GDDR5
