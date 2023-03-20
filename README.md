@@ -42,7 +42,7 @@ The easiest way to run the project is via Google Colab. Here you will find direc
 
 Alternatively we have also included a folder with the python files in case you want to download the code and use it in your machine. Note that prior adaptation of the code to your machine will be needed beforehand.
 
-* Half Cheetah (PPO)
+* Half Cheetah (Train/Sweep)
 
     [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/SWEEP_RL_PPO_HALFCHEETAH.ipynb)
 
@@ -50,13 +50,13 @@ Alternatively we have also included a folder with the python files in case you w
 
     [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/RL_PPO_HALFCHEETAH_VIDEO.ipynb)
 
-* ANYmal C (PPO)
+* ANYmal C (Train/Sweep)
 
-        ==PENDING==
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/RL_PPO_ANYMAL_C_SWEEP_OR_TRAIN.ipynb)
 
 * ANYmal C (Video Capture)
 
-        ==PENDING==
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/RL_PPO_ANYMAL_C_VIDEO.ipynb)
 
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
