@@ -1,8 +1,11 @@
 # Deep RL With MuJoCo
 
-Final project for the 2023-winter's edition of the *Artificial Intelligence with Deep Learning* postgraduate course taught by the Universitat Politècnica de Catalunya (UPC).
+Final project for the 2023-winter's edition of the *Artificial Intelligence with Deep Learning* postgraduate course run by the Universitat Politècnica de Catalunya (UPC).
 
 The goal of this project is to train diverse AI models to perform tasks using (Deep) Reinforcement Learning in the MuJoCo physics simulator.
+
+<br/>
+<br/>
 
 ### Team Members
 
@@ -11,9 +14,15 @@ The goal of this project is to train diverse AI models to perform tasks using (D
 * Hariss Farhan
 * Miquel Quesada
 
+<br/>
+
+
 ### Project Advisor
 
 * JuanJo Nieto
+
+<br/>
+
 
 ## Index
 
@@ -34,16 +43,40 @@ The goal of this project is to train diverse AI models to perform tasks using (D
         4. [Results](#results2)
         5. [Conclusions](#conclusions2)
 5. [Final Conclusions](#final-conclusions)
-6. [Future Work](#future-work)
-7. [Computational Resources](#comp-res)
+6. [Computational Resources](#comp-res)
+
+<br/>
+<br/>
 
 ## How To Run <a name="how-to-run"></a>
 
-In order to run the code:
+In order to run the code, execute ```pip install -r requirements.txt``` aaaaa ```ok```
 
-1. Download the ________ and _________ files 
-2. Open the files in [Google Colab](https://colab.research.google.com/)
-3. Execute the cells
+<br/>
+<br/>
+
+## Computational Resources <a name="comp-res"></a>
+
+As the neural networks that we used were pretty small, we didn't find ourselves in the need of using GPUs for the training of our models (we would have spent more time passing the parameters to the GPU than doing the actual calculations in the CPU). 
+
+To add on that, MuJoCo runs only on CPU and has no GPU support currently, so the only use case for GPUs in our project has been the render and capture of the videos.
+
+Given this situation, for the development of this project, we have mainly used Google Colab, and when we needed to do longer trainings, a laptop with better specs to speed up the process a little bit.
+
+Here are the specifications of the machines:
+
+* Google Colab
+    * Intel Xeon @ 2.20GHz
+    * 12GB RAM
+    * NVIDIA Tesla K80 12GB GDDR5
+
+* Laptop
+    * AMD Ryzen 7 5800H @ 3.20 GHz
+    * 16GB RAM
+    * NVIDIA GeForce RTX 3070 8GB GDDR6
+
+<br/>
+<br/>
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
 
@@ -55,6 +88,9 @@ take, but instead must discover which actions yield the most reward by trying th
 
 [^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 
+<br/>
+<br/>
+
 ## PPO <a name="ppo"></a>
 
 Proximal Policy Optimization (PPO) is considered the state-of-the-art in 
@@ -64,7 +100,9 @@ goal is to have an algorithm that is as reliable as possible, and is data effici
 In Reinforcement Learning, there are many methods that can be classified into 
 two main groups: policy-based methods and value-based methods. 
 
-// meter grapho
+<p align="center">
+    <img src="./assets/types-of-rl-methods.svg" >
+</p>
 
 On one hand, a policy-based method is a type of reinforcement learning algorithm that learns a policy directly without explicitly computing the value function. In this approach, the agent directly learns a policy that maps the state to actions.
 
@@ -75,7 +113,6 @@ Policy-based methods can be classified into two main categories: deterministic p
 
  A value-based method is an algorithm that learns to estimate the value function of states or state-action pairs. The value function represents the expected cumulative reward an agent can obtain from a particular state or state-action pair over time.
 
-// meter grapho 
 
 In value-based methods, the agent uses this value function to choose the action that maximizes its expected cumulative reward. The value function can be learned using various techniques, such as Monte Carlo methods, temporal difference learning, or Q-learning.
 
@@ -86,7 +123,8 @@ In particular, PPO optimizes the policy by maximizing a surrogate objective func
 As a policy-based algorithm, PPO is well-suited for tasks with continuous action spaces, and can handle stochastic policies, which can be important in environments with complex dynamics or multiple optimal actions.
 
 Given the complexity of our model, which involves multiple joints and actions, we decided to utilize this algorithm for our project.
-
+<br/>
+<br/>
 ## MuJoCo <a name="mujoco"></a>
 
  [MuJoCo](https://mujoco.org/) (which stands for Multi-Joint dynamics with Contact) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
@@ -96,6 +134,8 @@ Initially developed by Roboti LLC, it was acquired and made freely available by 
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
 </p>
+<br/>
+<br/>
 
 ### Half Cheetah <a name="halfcheetah"></a>
 
@@ -107,15 +147,10 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true">
 </p>
 
-#### Architecture <a name="architecture1"></a>
+#### Hypothesis <a name="hypothesis 1"></a>
 
-We based the architecture from the lunar lander lab.
 
-Lunar lander es discreto
-Half cheetah es un entorno continuo
-
-Tenemos 6 acciones que van de -1 a 1
-
+#### Experiment setup / Architecture <a name="architecture1"></a>
 
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 64),
@@ -132,23 +167,29 @@ Tenemos 6 acciones que van de -1 a 1
 #### Results <a name="results1"></a>
 
 #### Conclusions <a name="conclusions1"></a>
+<br/>
+<br/>
 
-
-### Anybotics ANYmal C <a name="anymal-c"></a>
+## Anybotics ANYmal C <a name="anymal-c"></a>
 
 #### Overview <a name="overview2"></a>
 
-The ANYmal C is a quadruped robot used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments.
+The ANYmal C is a quadruped robot used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments, such as industrial inspection, search and rescue, and scientific research. It is highly adaptable and can be customized to suit a wide range of tasks and environments, making it a versatile platform for robotics research and development. 
+
+The Anybiotics ANYmal C model has 12 degrees of freedom, enabling it to execute a wide variety of dynamic movements, such as walking, trotting, running, climbing, and crawling. These degrees of freedom provide the robot with the ability to move its body in many different ways, making it highly versatile and adaptable.
 
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Anybotics%20ANYmal%20C.jpg?raw=true">
 </p>
 
 <font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
+<br/>
 
-#### Architecture <a name="architecture2"></a>
+#### Hypothesis <a name="hypothesis 1"></a>
 
-We have added one hidden layer more than in the half cheetah environment and we use more input parameters.
+<br/>
+
+#### Experiment setup / Architecture <a name="architecture2"></a>
 
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 128),
@@ -166,7 +207,17 @@ We have added one hidden layer more than in the half cheetah environment and we 
         nn.Tanh(),
         nn.Linear(64,1))
 
-#### Milestones <a name="milestones2"></a>
+
+The architecture consists of three neural networks: an MLP (multi-layer perceptron), an actor network, and a critic network. Here is a breakdown of each component:
+
+The  multi-layer perceptron  consists of two fully connected layers with 128 neurons each, followed by a hyperbolic tangent activation function.
+
+The output of the multilayer perceptron is passed as input to both the actor and the critic networks.
+
+The actor, is responsible for producing the policy distribution over actions, whereas the critic  is responsible for estimating the state value function, which is the expected return starting from the current state. 
+
+As you can see, the architecture follows a common pattern in reinforcement learning called the actor-critic method. The actor network generates a policy distribution over actions, while the critic network estimates the value of each state or state-action pair. The actor uses the critic's estimates to improve the policy, while the critic learns to predict the expected returns accurately. 
+<br/>
 
 #### Results <a name="results2"></a>
 
@@ -176,34 +227,34 @@ We have added one hidden layer more than in the half cheetah environment and we 
 
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Step_Crash_and_Recovery.gif">
 
+<br/>
+
+<img src="./assets/anybiotics-reward.jpeg" >
+
+<img src="./assets/anybiotics-entropy.jpeg">
+
+<img src="./assets/parameters-tuning-anybiotics.jpeg">
+
+<img src="./assets/parameters-correlation-anybiotics.jpeg">
+
+<br/>
+
 #### Conclusions <a name="conclusions2"></a>
+
+Based on the given information, we draw a series of conclusions:
+
+
+1. The training algorithm being used is Proximal Policy Optimization (PPO), which is a reinforcement learning algorithm that has been shown to be effective for training robotic control tasks.
+
+
+2. The algorithm improved the model's walking performance over time, as evidenced by the videos, with a maximum reward of 5925.51 achieved during training.
+
+3. The entropy started at 17.025 and went down to 14.564 in 20.3 hours, which suggests that the policy became more deterministic as the training progressed.
+
 
 
 ## Final Conclusions <a name="final-conclusions"></a>
 
-## Future Work <a name="future-work"></a>
+## Future work
 
-## Computational Resources <a name="comp-res"></a>
 
-As the neural networks that we used were pretty small, we didn't find ourselves in the need of using GPUs for the training of our models (we would have spent more time passing the parameters to the GPU than doing the actual calculations in the CPU). 
-
-To add on that, MuJoCo runs only on CPU and has no GPU support currently, so the only use case for GPUs in our project has been the render and capture of the videos.
-
-Given this situation, for the development of this project, we have mainly used Google Colab, and when we needed to do longer trainings, two laptops with better specs to speed up the process a little bit (and also don't get kicked out from the runtime).
-
-Here are the specifications of the machines:
-
-* Google Colab
-    * Intel Xeon @ 2.20GHz
-    * 12GB RAM
-    * NVIDIA Tesla K80 12GB GDDR5
-
-* Laptop #1
-    * AMD Ryzen 7 5800H @ 3.20GHz
-    * 16GB RAM
-    * NVIDIA GeForce RTX 3070 8GB GDDR6
-
-* Laptop #2
-    * INTEL Core i7-9750H @ 2.60 GHz
-    * 8GB RAM
-    * NVIDIA GeForce GTX 1050 4GB GDDR5
