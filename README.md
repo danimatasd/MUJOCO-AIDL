@@ -34,11 +34,16 @@ The goal of this project is to train diverse AI models to perform tasks using (D
         4. [Results](#results2)
         5. [Conclusions](#conclusions2)
 5. [Final Conclusions](#final-conclusions)
-6. [Computational Resources](#comp-res)
+6. [Future Work](#future-work)
+7. [Computational Resources](#comp-res)
 
 ## How To Run <a name="how-to-run"></a>
 
-In order to run the code, execute ```pip install -r requirements.txt``` aaaaa ```ok```
+In order to run the code:
+
+1. Download the PPO_BD_NN_STD.py and _________ files 
+2. Open the files in [Google Colab](https://colab.research.google.com/)
+3. Execute the cells
 
 ## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
 
@@ -104,6 +109,14 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
 
 #### Architecture <a name="architecture1"></a>
 
+We based the architecture from the lunar lander lab.
+
+Lunar lander es discreto
+Half cheetah es un entorno continuo
+
+Tenemos 6 acciones que van de -1 a 1
+
+
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 64),
         nn.Tanh(),
@@ -135,6 +148,8 @@ The ANYmal C is a quadruped robot used for inspection of industrial facilities. 
 
 #### Architecture <a name="architecture2"></a>
 
+We have added one hidden layer more than in the half cheetah environment and we use more input parameters.
+
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 128),
         nn.Tanh(),
@@ -155,10 +170,14 @@ The ANYmal C is a quadruped robot used for inspection of industrial facilities. 
 
 #### Results <a name="results2"></a>
 
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif">
+
 #### Conclusions <a name="conclusions2"></a>
 
 
 ## Final Conclusions <a name="final-conclusions"></a>
+
+## Future Work <a name="future-work"></a>
 
 ## Computational Resources <a name="comp-res"></a>
 
@@ -176,7 +195,7 @@ Here are the specifications of the machines:
     * NVIDIA Tesla K80 12GB GDDR5
 
 * Laptop
-    * AMD Ryzen 7 5800H @ 3.20 GHz
+    * AMD Ryzen 7 5800H @ 3.20GHz
     * 16GB RAM
     * NVIDIA GeForce RTX 3070 8GB GDDR6
 
