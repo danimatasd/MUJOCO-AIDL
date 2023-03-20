@@ -24,15 +24,13 @@ The goal of this project is to train several AI models to perform tasks using (D
     1. [Half Cheetah](#halfcheetah)
         1. [Overview](#overview1)
         2. [Architecture](#architecture1)
-        3. [Milestones](#milestones1)
-        4. [Results](#results1)
-        5. [Conclusions](#conclusions1)
+        3. [Results](#results1)
+        4. [Conclusions](#conclusions1)
     2. [ANYmal C](#anymal-c)
         1. [Overview](#overview2)
         2. [Architecture](#architecture2)
-        3. [Milestones](#milestones2)
-        4. [Results](#results2)
-        5. [Conclusions](#conclusions2)
+        3. [Results](#results2)
+        4. [Conclusions](#conclusions2)
 6. [Future Work](#future-work)
 7. [Computational Resources](#comp-res)
 
@@ -114,9 +112,9 @@ Initially developed by Roboti LLC, it was acquired and made freely available by 
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
 </p>
 
-### Half Cheetah <a name="halfcheetah"></a>
+## Half Cheetah <a name="halfcheetah"></a>
 
-#### Overview <a name="overview1"></a>
+### Overview <a name="overview1"></a>
 
 The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints connecting them (including two paws). The goal is to apply a torque on the joints to make the cheetah run forward (right) as fast as possible, with a positive reward allocated based on the distance moved forward and a negative reward allocated for moving backward. The torso and head of the cheetah are fixed, and the torque can only be applied on the other 6 joints over the front and back thighs (connecting to the torso), shins (connecting to the thighs) and feet (connecting to the shins).
 
@@ -124,7 +122,7 @@ The HalfCheetah is a 2-dimensional robot consisting of 9 links and 8 joints conn
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true">
 </p>
 
-#### Architecture <a name="architecture1"></a>
+### Architecture <a name="architecture1"></a>
 
 We based the architecture from the lunar lander lab.
 
@@ -144,16 +142,14 @@ Tenemos 6 acciones que van de -1 a 1
 
     self.critic = nn.Linear(128, 1)
 
-#### Milestones <a name="milestones1"></a>
+### Results <a name="results1"></a>
 
-#### Results <a name="results1"></a>
-
-#### Conclusions <a name="conclusions1"></a>
+### Conclusions <a name="conclusions1"></a>
 
 
-### Anybotics ANYmal C <a name="anymal-c"></a>
+## Anybotics ANYmal C <a name="anymal-c"></a>
 
-#### Overview <a name="overview2"></a>
+### Overview <a name="overview2"></a>
 
 The ANYmal C is a quadruped robot used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments, such as industrial inspection, search and rescue, and scientific research. It is highly adaptable and can be customized to suit a wide range of tasks and environments, making it a versatile platform for robotics research and development. 
 
@@ -165,7 +161,7 @@ The Anybiotics ANYmal C model has 12 degrees of freedom, enabling it to execute 
 
 <font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
 
-#### Architecture <a name="architecture2"></a>
+### Architecture <a name="architecture2"></a>
 
 We have added one hidden layer more than in the half cheetah environment and we use more input parameters.
 
@@ -195,9 +191,7 @@ The actor, is responsible for producing the policy distribution over actions, wh
 
 As you can see, the architecture follows a common pattern in reinforcement learning called the actor-critic method. The actor network generates a policy distribution over actions, while the critic network estimates the value of each state or state-action pair. The actor uses the critic's estimates to improve the policy, while the critic learns to predict the expected returns accurately. 
 
-#### Milestones <a name="milestones2"></a>
-
-#### Results <a name="results2"></a>
+### Results <a name="results2"></a>
 
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif">
 
@@ -215,7 +209,7 @@ As you can see, the architecture follows a common pattern in reinforcement learn
 
 <img src="./assets/parameters-correlation-anybiotics.jpeg">
 
-#### Conclusions <a name="conclusions2"></a>
+### Conclusions <a name="conclusions2"></a>
 
 Based on the given information, we draw a series of conclusions:
 
