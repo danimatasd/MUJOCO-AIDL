@@ -91,7 +91,7 @@ Policy-based methods can be classified into two main categories: deterministic p
 In value-based methods, the agent uses this value function to choose the action that maximizes its expected cumulative reward. The value function can be learned using various techniques, such as Monte Carlo methods, temporal difference learning, or Q-learning.
 ## PPO <a name="ppo"></a>
 
-Proximal Policy Optimization (PPO) is considered the state-of-the-art in 
+Proximal Policy Optimization (PPO) is considered on of the state-of-the-art algorithms in 
 Reinforcement Learning, and it consists of a policy gradient method whose main
 goal is to have an algorithm that is as reliable as possible, and is data efficient. 
 
