@@ -227,13 +227,13 @@ As you can see, the architecture follows a common pattern in reinforcement learn
 
 <br/>
 
-<img src="./assets/anybiotics-reward.jpeg" >
+<img src="./assets/anybotics-reward.jpeg" >
 
-<img src="./assets/anybiotics-entropy.jpeg">
+<img src="./assets/anybotics-entropy.jpeg">
 
-<img src="./assets/parameters-tuning-anybiotics.jpeg">
+<img src="./assets/parameters-tuning-anybotics.jpeg">
 
-<img src="./assets/parameters-correlation-anybiotics.jpeg">
+<img src="./assets/parameters-correlation-anybotics.jpeg">
 
 ### Conclusions <a name="conclusions2"></a>
 
