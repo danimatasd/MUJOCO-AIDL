@@ -189,15 +189,11 @@ As you can see, the architecture follows a common pattern in reinforcement learn
 
 > See the [hyperparameter glossary](#glossary) for an explanation of each hyperparameter
 
-We performed several sweeps in order to find the best values for some of the hyperparameters, and we found out that the hp that had more influence were the learning rate, c1 and c2, ppo_epoch, runtime and the replay size.
+We performed several sweeps in order to find the best values for some of the hyperparameters, and we found out that the ones that had more influence were the learning rate, c1 and c2, ppo_epoch, runtime and the replay size.
 
-After the following sweep we found a good set of hyperparameters, and after some trials we ended up using the following hyper
+After the following sweep we found a good set of hyperparameters, and after some trials we ended up using the following:
 
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-hp-sweep.jpeg">
-
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-hp-correlation.jpeg">
-
-    hparams = {
+hparams = {
         'gamma' : 0.99,
         'log_interval' : 10,
         'num_episodes': 50000,
@@ -212,13 +208,27 @@ After the following sweep we found a good set of hyperparameters, and after some
         'video_interval': 200
     }
 
+<p align="center">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-hp-sweep.jpeg">
+</p>
+
+<p align="center">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-hp-correlation.jpeg">
+</p>
+
 ### Results <a name="results1"></a>
 
+<p align="center">
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_1000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_2000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_3000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_3908.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_5006.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_5734.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_-304.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_-506_Final.gif">
+</p>
 
+<p align="center">
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-reward.jpeg">
+</p>
 
+<p align="center">
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-entropy.jpeg">
+</p>
 
 ### Conclusions <a name="conclusions1"></a>
 
@@ -228,7 +238,7 @@ Based on the given information, we draw a series of conclusions:
 
 2. The algorithm improved the model's running performance over time, as evidenced by the videos, with a maximum reward of 5734 achieved during training.
 
-3. The entropy started at 17.025 and went down to 14.564 in 20.3 hours, which suggests that the policy became more deterministic as the training progressed.
+3. The entropy started at 8.515 and went down to -6.949 in 77023 steps, which suggests that the policy became more deterministic as the training progressed, but we can see in graphs, once the entropy became negative, the reward suddenly fell, as you can see in the last two videos.
 
 ## ANYmal C <a name="anymal-c"></a>
 
@@ -330,23 +340,24 @@ After performing the sweep, these were the hyperparameters that gave us the best
         'std_min': 0.6,
         }
 
-### Results <a name="results2"></a>
-
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif">
-
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Step_Crash.gif">
-
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Step_Crash_and_Recovery.gif">
-
-<br/>
-
-<img src="./assets/anybotics-reward.jpeg" >
-
-<img src="./assets/anybotics-entropy.jpeg">
-
 <img src="./assets/parameters-tuning-anybotics.jpeg">
 
 <img src="./assets/parameters-correlation-anybotics.jpeg">
+
+### Results <a name="results2"></a>
+
+<p align="center">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_from_behind.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_recovery_jump.gif">
+</p>
+<br/>
+
+<p align="center">
+<img src="./assets/anybotics-reward.jpeg" >
+</p>
+
+<p align="center">
+<img src="./assets/anybotics-entropy.jpeg">
+</p>
 
 ### Conclusions <a name="conclusions2"></a>
 
