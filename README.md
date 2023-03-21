@@ -71,12 +71,6 @@ take, but instead must discover which actions yield the most reward by trying th
 
 [^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 
-## PPO <a name="ppo"></a>
-
-Proximal Policy Optimization (PPO) is considered the state-of-the-art in 
-Reinforcement Learning, and it consists of a policy gradient method whose main
-goal is to have an algorithm that is as reliable as possible, and is data efficient. 
-
 In Reinforcement Learning, there are many methods that can be classified into 
 two main groups: policy-based methods and value-based methods. 
 
@@ -95,6 +89,11 @@ Policy-based methods can be classified into two main categories: deterministic p
 
 
 In value-based methods, the agent uses this value function to choose the action that maximizes its expected cumulative reward. The value function can be learned using various techniques, such as Monte Carlo methods, temporal difference learning, or Q-learning.
+## PPO <a name="ppo"></a>
+
+Proximal Policy Optimization (PPO) is considered the state-of-the-art in 
+Reinforcement Learning, and it consists of a policy gradient method whose main
+goal is to have an algorithm that is as reliable as possible, and is data efficient. 
 
 PPO is a policy-based reinforcement learning algorithm. It directly learns a policy that maps states to actions, rather than estimating a value function like value-based methods such as Q-learning.
 
@@ -172,7 +171,16 @@ We performed several hyperparameter sweeps in order to find the best ones
 
 
 ## Anybotics ANYmal C <a name="anymal-c"></a>
-
+## Hypothesis <a name="hypothesis"></a>
+We hypothesize that, by using the PPO algorithm with reinforcement learning to train the Anybotics model, we can achieve a higher reward compared to baseline models trained with other reinforcement learning algorithms. 
+<br/> 
+<br/> 
+Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate, discount factor, and batch size will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
+<br/>
+<br/>
+ Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust Anybotics model that can achieve a higher reward in a variety of simulated environments.
+ <br/>
+ <br/>
 ### Overview <a name="overview2"></a>
 
 The ANYmal C is a quadruped robot used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments, such as industrial inspection, search and rescue, and scientific research. It is highly adaptable and can be customized to suit a wide range of tasks and environments, making it a versatile platform for robotics research and development. 
@@ -185,6 +193,34 @@ The Anybiotics ANYmal C model has 12 degrees of freedom, enabling it to execute 
 
 <font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
 
+### Experimental setup <a name="architecture2"></a>
+The steps we followed in order to do this experiment, were: 
+<br/>
+<br/>
+
+1. Setting up the MuJoCo environment, and importing all the necessary libraries:
+<br/>
+    Install MuJoCo and set up the environment variables
+    Download the appropriate robot model and environment file.
+    Finally, import necessary libraries such as matplotlib, wandb, etc. 
+
+2. Hyperparameters tuning with a sweep:
+<br/>
+Define the range of values for each hyperparameter (e.g. learning rate, batch size, etc.).
+Perform the hyperparameter sweep using grid search or random search.
+Record the results for each set of hyperparameters (e.g. reward, entropy, training time, etc.)
+
+3. Training the final model with the previous parameters with a long run to obtain rewards and entropy metrics:
+<br/>
+Select the set of hyperparameters that yielded the best results from the hyperparameter sweep
+Write a script to train the final model using the selected hyperparameters and a long training run.
+Monitor the training progress by logging the reward and entropy metrics at regular intervals in Wandb and, also, visualize the results using graphs or plots to better understand the learning process
+
+4. Evaluation:
+<br/>
+    Test the trained model on a set of unseen environments to evaluate its performance.
+
+Overall, this experimental setup provides a systematic approach for designing and evaluating reinforcement learning models using the MuJoCo environment, hyperparameter tuning, and long training runs.
 ### Architecture <a name="architecture2"></a>
 
 We have added one hidden layer more than in the half cheetah environment and we use more input parameters.
@@ -216,7 +252,45 @@ The actor, is responsible for producing the policy distribution over actions, wh
 As you can see, the architecture follows a common pattern in reinforcement learning called the actor-critic method. The actor network generates a policy distribution over actions, while the critic network estimates the value of each state or state-action pair. The actor uses the critic's estimates to improve the policy, while the critic learns to predict the expected returns accurately.
 
 ### Hyperparameters <a name="hyperparameters2"></a>
+    hparams = {
+        'gamma' : 0.99,
+        'log_interval' : 50,
+        'num_episodes': 15000,
+        'lr' : 1e-5,
+        'clip_param': 0.1,
+        'ppo_epoch': 48,
+        'replay_size': 6400,
+        'batch_size': 128,
+        'c1': 1.,
+        'c2': 0.001,
+        'std_init': 1.0,
+        'std_min': 0.6,
+        }
+After performing the sweep, these were the hyperparameters that gave us the best reward for the experiment. On this hyperparameters, we find the following: 
 
+1. gamma: discount factor for future rewards. A higher value indicates that future rewards are given more weight in the decision-making process.
+
+2. log_interval: the number of training episodes between each logging statement. This determines how often to log information about the training progress, such as the reward or loss.
+
+3. num_episodes: the total number of training episodes to run.
+
+4. lr: the learning rate for the optimizer. This determines how much to update the model's weights based on the error of each prediction.
+
+5. clip_param: the clipping parameter for the Proximal Policy Optimization (PPO) algorithm. This determines the maximum amount that the new policy can deviate from the old policy during each update.
+
+6. ppo_epoch: the number of times to iterate over the entire training dataset during each PPO update. A higher value may improve convergence at the cost of increased computation.
+
+7. replay_size: the maximum size of the replay buffer, which stores past observations and actions. A larger replay buffer can help stabilize training by preventing the model from overfitting to recent experiences.
+
+8. batch_size: the number of samples to use for each mini-batch during training.
+
+9. c1: the coefficient for the value loss term in the PPO loss function. A higher value indicates that the value loss term is given more weight in the overall loss.
+
+10. c2: the coefficient for the entropy term in the PPO loss function. A higher value indicates that the entropy term is given more weight in the overall loss.
+
+11. std_init: the initial standard deviation for the Gaussian policy.
+
+12. std_min: the minimum standard deviation for the Gaussian policy. This determines the minimum amount of exploration the agent will perform. 
 ### Results <a name="results2"></a>
 
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif">
