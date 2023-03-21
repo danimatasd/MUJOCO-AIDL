@@ -162,6 +162,8 @@ As you can see, the architecture follows a common pattern in reinforcement learn
 
 #### Hyperparameters <a name="hyperparameters1"></a>
 
+> See the [hyperparameter glossary](#glossary) for an explanation of each hyperparameter
+
 We performed several sweeps in order to find the best values for some of the hyperparameters, and we found out that the hp that had more influence were the learning rate, c1 and c2, ppo_epoch, runtime and the replay size.
 
 After the following sweep we found a good set of hyperparameters, and after some trials we ended up using the following hyper
@@ -226,33 +228,30 @@ Also, we predict that by performing a hyperparameter sweep and optimizing the hy
 
 The steps we followed in order to do this experiment, were: 
 <br/>
-1. Setting up the MuJoCo environment, and importing all the necessary libraries:
-<br/>
-    Install MuJoCo and set up the environment variables
-    Download the appropriate robot model and environment file.
-    Finally, import necessary libraries such as matplotlib, wandb, etc. 
 
-2. Hyperparameters tuning with a sweep:
-<br/>
+1. Setting up the MuJoCo environment, and importing all the necessary libraries: <br/>
+Install MuJoCo and set up the environment variables
+Download the appropriate robot model and environment file.
+Finally, import necessary libraries such as matplotlib, wandb, etc. 
+
+2. Hyperparameters tuning with a sweep: <br/>
 Define the range of values for each hyperparameter (e.g. learning rate, batch size, etc.).
 Perform the hyperparameter sweep using grid search or random search.
 Record the results for each set of hyperparameters (e.g. reward, entropy, training time, etc.)
 
-3. Training the final model with the previous parameters with a long run to obtain rewards and entropy metrics:
-<br/>
+3. Training the final model with the previous parameters with a long run to obtain rewards and entropy metrics: <br/>
 Select the set of hyperparameters that yielded the best results from the hyperparameter sweep
 Write a script to train the final model using the selected hyperparameters and a long training run.
 Monitor the training progress by logging the reward and entropy metrics at regular intervals in Wandb and, also, visualize the results using graphs or plots to better understand the learning process
 
-4. Evaluation:
-<br/>
-    Test the trained model on a set of unseen environments to evaluate its performance.
+4. Evaluation: <br/>
+Test the trained model on a set of unseen environments to evaluate its performance.
 
 Overall, this experimental setup provides a systematic approach for designing and evaluating reinforcement learning models using the MuJoCo environment, hyperparameter tuning, and long training runs.
 
 #### Architecture <a name="architecture2"></a>
 
-We have added one hidden layer more than in the half cheetah environment and we use more input parameters.
+We have added one hidden layer more in comparison with the half cheetah environment and we use more input parameters.
 
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 128),
@@ -281,6 +280,11 @@ The actor, is responsible for producing the policy distribution over actions, wh
 As you can see, the architecture follows a common pattern in reinforcement learning called the actor-critic method. The actor network generates a policy distribution over actions, while the critic network estimates the value of each state or state-action pair. The actor uses the critic's estimates to improve the policy, while the critic learns to predict the expected returns accurately.
 
 #### Hyperparameters <a name="hyperparameters2"></a>
+
+> See the [hyperparameter glossary](#glossary) for an explanation of each hyperparameter
+
+After performing the sweep, these were the hyperparameters that gave us the best reward for the experiment:
+
     hparams = {
         'gamma' : 0.99,
         'log_interval' : 50,
@@ -295,31 +299,6 @@ As you can see, the architecture follows a common pattern in reinforcement learn
         'std_init': 1.0,
         'std_min': 0.6,
         }
-After performing the sweep, these were the hyperparameters that gave us the best reward for the experiment. On this hyperparameters, we find the following: 
-
-1. gamma: discount factor for future rewards. A higher value indicates that future rewards are given more weight in the decision-making process.
-
-2. log_interval: the number of training episodes between each logging statement. This determines how often to log information about the training progress, such as the reward or loss.
-
-3. num_episodes: the total number of training episodes to run.
-
-4. lr: the learning rate for the optimizer. This determines how much to update the model's weights based on the error of each prediction.
-
-5. clip_param: the clipping parameter for the Proximal Policy Optimization (PPO) algorithm. This determines the maximum amount that the new policy can deviate from the old policy during each update.
-
-6. ppo_epoch: the number of times to iterate over the entire training dataset during each PPO update. A higher value may improve convergence at the cost of increased computation.
-
-7. replay_size: the maximum size of the replay buffer, which stores past observations and actions. A larger replay buffer can help stabilize training by preventing the model from overfitting to recent experiences.
-
-8. batch_size: the number of samples to use for each mini-batch during training.
-
-9. c1: the coefficient for the value loss term in the PPO loss function. A higher value indicates that the value loss term is given more weight in the overall loss.
-
-10. c2: the coefficient for the entropy term in the PPO loss function. A higher value indicates that the entropy term is given more weight in the overall loss.
-
-11. std_init: the initial standard deviation for the Gaussian policy.
-
-12. std_min: the minimum standard deviation for the Gaussian policy. This determines the minimum amount of exploration the agent will perform. 
 
 ### Results <a name="results2"></a>
 
