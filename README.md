@@ -72,7 +72,7 @@ Reinforcement Learning is an area of Machine Learning concerned with how intelli
  
 > "Reinforcement learning is learning what to do—how to map situations to actions—so
 as to maximize a numerical reward signal. The learner is not told which actions to
-take, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning." [^1] — Richard S. Sutton and Andrew G. Barto
+take, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning." — Richard S. Sutton and Andrew G. Barto [^1]
 
 [^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 
@@ -135,8 +135,6 @@ Also, we predict that by performing a hyperparameter sweep and optimizing the hy
 <br/>
 <br/>
  Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust model that can achieve a higher reward in a variety of simulated environments.
- <br/>
- <br/>
 
 ### Experiment setup <a name="exp-setup1"></a>
 
@@ -193,7 +191,7 @@ We performed several sweeps in order to find the best values for some of the hyp
 
 After the following sweep we found a good set of hyperparameters, and after some trials we ended up using the following:
 
-hparams = {
+    hparams = {
         'gamma' : 0.99,
         'log_interval' : 10,
         'num_episodes': 50000,
@@ -206,7 +204,7 @@ hparams = {
         'c2': 0.01,
         'std_init': 1.0,
         'video_interval': 200
-    }
+        }
 
 <p align="center">
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-hp-sweep.jpeg">
@@ -347,7 +345,15 @@ After performing the sweep, these were the hyperparameters that gave us the best
 ### Results <a name="results2"></a>
 
 <p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_from_behind.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_recovery_jump.gif">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif">
+</p>
+
+<p align="center">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_from_behind.gif">
+</p>
+
+<p align="center">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_recovery_jump.gif">
 </p>
 <br/>
 
