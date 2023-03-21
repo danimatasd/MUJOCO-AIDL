@@ -1,0 +1,10 @@
+swig
+wandb
+free-mujoco-py 
+pyvirtualdisplay==0.2.*
+PyOpenGL==3.1.*
+PyOpenGL-accelerate==3.1.*
+jedi
+imageio
+pyglet==1.4
+stable-baselines3[extra]
