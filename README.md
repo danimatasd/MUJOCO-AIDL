@@ -72,7 +72,7 @@ Reinforcement Learning is an area of Machine Learning concerned with how intelli
  
 > "Reinforcement learning is learning what to do—how to map situations to actions—so
 as to maximize a numerical reward signal. The learner is not told which actions to
-take, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning." — Richard S. Sutton and Andrew G. Barto [^1]
+take, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning." [^1] — Richard S. Sutton and Andrew G. Barto
 
 [^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 
@@ -93,7 +93,7 @@ A value-based method is an algorithm that learns to estimate the value function 
 
 In value-based methods, the agent uses this value function to choose the action that maximizes its expected cumulative reward. The value function can be learned using various techniques, such as Monte Carlo methods, temporal difference learning, or Q-learning.
 
-## PPO <a name="ppo"></a>
+## Proximal Policy Optimization (PPO) <a name="ppo"></a>
 
 Proximal Policy Optimization (PPO) is considered on of the state-of-the-art algorithms in Reinforcement Learning, and it consists of a policy gradient method whose main goal is to have an algorithm that is as reliable as possible, and is data efficient. 
 
@@ -128,17 +128,42 @@ The Half Cheetah is a 2-dimensional robot consisting of 9 links and 8 joints con
 
 ### Hypothesis <a name="hypothesis1"></a>
 
+We hypothesize that, by using the PPO algorithm with reinforcement learning to train the Half Cheetah model, we can achieve a higher reward compared to baseline models trained with other reinforcement learning algorithms. 
+<br/> 
+<br/> 
+Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate, discount factor, and batch size will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
+<br/>
+<br/>
+ Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust model that can achieve a higher reward in a variety of simulated environments.
+ <br/>
+ <br/>
+
 ### Experiment setup <a name="exp-setup1"></a>
 
+The steps we followed in order to do this experiment, were: 
+<br/>
+
+1. Setting up the MuJoCo environment, and importing all the necessary libraries: <br/>
+Install MuJoCo and set up the environment variables
+Download the appropriate robot model and environment file.
+Finally, import necessary libraries such as matplotlib, wandb, etc. 
+
+2. Hyperparameters tuning with a sweep: <br/>
+Define the range of values for each hyperparameter (e.g. learning rate, batch size, etc.).
+Perform the hyperparameter sweep using grid search or random search.
+Record the results for each set of hyperparameters (e.g. reward, entropy, training time, etc.)
+
+3. Training the final model with the previous parameters with a long run to obtain rewards and entropy metrics: <br/>
+Select the set of hyperparameters that yielded the best results from the hyperparameter sweep
+Write a script to train the final model using the selected hyperparameters and a long training run.
+Monitor the training progress by logging the reward and entropy metrics at regular intervals in Wandb and, also, visualize the results using graphs or plots to better understand the learning process
+
+4. Evaluation: <br/>
+Test the trained model on a set of unseen environments to evaluate its performance.
+
+Overall, this experiment setup provides a systematic approach for designing and evaluating reinforcement learning models using the MuJoCo environment, hyperparameter tuning, and long training runs.
+
 #### Architecture <a name="architecture1"></a>
-
-We based the architecture from the lunar lander lab.
-
-Lunar lander es discreto
-Half cheetah es un entorno continuo
-
-Tenemos 6 acciones que van de -1 a 1
-
 
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 64),
@@ -197,20 +222,25 @@ After the following sweep we found a good set of hyperparameters, and after some
 
 ### Conclusions <a name="conclusions1"></a>
 
+Based on the given information, we draw a series of conclusions:
 
-## Anybotics ANYmal C <a name="anymal-c"></a>
+1. The training algorithm being used is Proximal Policy Optimization (PPO), which is a reinforcement learning algorithm that has been shown to be effective for training robotic control tasks.
+
+2. The algorithm improved the model's running performance over time, as evidenced by the videos, with a maximum reward of 5734 achieved during training.
+
+3. The entropy started at 17.025 and went down to 14.564 in 20.3 hours, which suggests that the policy became more deterministic as the training progressed.
+
+## ANYmal C <a name="anymal-c"></a>
 
 ### Overview <a name="overview2"></a>
 
-The ANYmal C is a quadruped robot used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments, such as industrial inspection, search and rescue, and scientific research. It is highly adaptable and can be customized to suit a wide range of tasks and environments, making it a versatile platform for robotics research and development. 
+The ANYmal C is a quadruped robot developed by [ANYbotics](https://www.anybotics.com/) used for inspection of industrial facilities. With it's 8 joints it is able to navigate through complex environments, such as industrial inspection, search and rescue, and scientific research. It is highly adaptable and can be customized to suit a wide range of tasks and environments, making it a versatile platform for robotics research and development. 
 
-The Anybiotics ANYmal C model has 12 degrees of freedom, enabling it to execute a wide variety of dynamic movements, such as walking, trotting, running, climbing, and crawling. These degrees of freedom provide the robot with the ability to move its body in many different ways, making it highly versatile and adaptable.
+The ANYmal C model has 12 degrees of freedom, enabling it to execute a wide variety of dynamic movements, such as walking, trotting, running, climbing, and crawling. These degrees of freedom provide the robot with the ability to move its body in many different ways, making it highly versatile and adaptable.
 
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Anybotics%20ANYmal%20C.jpg?raw=true">
 </p>
-
-<font size= "2"><center><em>[Anybotics ANYmal C](https://www.anybotics.com/anymal-autonomous-legged-robot/)</em></center></font>
 
 ### Hypothesis <a name="hypothesis2"></a>
 
@@ -220,7 +250,7 @@ We hypothesize that, by using the PPO algorithm with reinforcement learning to t
 Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate, discount factor, and batch size will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
 <br/>
 <br/>
- Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust Anybotics model that can achieve a higher reward in a variety of simulated environments.
+ Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust model that can achieve a higher reward in a variety of simulated environments.
  <br/>
  <br/>
 
@@ -247,7 +277,7 @@ Monitor the training progress by logging the reward and entropy metrics at regul
 4. Evaluation: <br/>
 Test the trained model on a set of unseen environments to evaluate its performance.
 
-Overall, this experimental setup provides a systematic approach for designing and evaluating reinforcement learning models using the MuJoCo environment, hyperparameter tuning, and long training runs.
+Overall, this experiment setup provides a systematic approach for designing and evaluating reinforcement learning models using the MuJoCo environment, hyperparameter tuning, and long training runs.
 
 #### Architecture <a name="architecture2"></a>
 
