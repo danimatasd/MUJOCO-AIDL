@@ -17,7 +17,7 @@
         rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
     <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5"
         reflectance="0.2"/>
-    <hfield name="barrier" file="/home/miquel/MUJOCO-AIDL/anybotics_anymal_c/hf_barrier.png" size="15 2 0.15 0.5"/>
+    <hfield name="barrier" file="./MUJOCO-AIDL/anybotics_anymal_c/hf_barrier.png" size="15 2 0.15 0.5"/>
   </asset>
 
   <worldbody>
