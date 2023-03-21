@@ -18,7 +18,7 @@ The goal of this project is to train several AI models to perform tasks using (D
 ## Index
 
 1. [How To Run](#how-to-run)
-2. [Introduction To Reinforcement Learning](#intro-to-rl)
+2. [Intro To Reinforcement Learning](#intro-to-rl)
 3. [Proximal Policy Optimization (PPO)](#ppo)
 4. [MuJoCo](#mujoco)
     1. [Half Cheetah](#halfcheetah)
@@ -74,7 +74,7 @@ Alternatively we have also included a folder with the python files in case you w
     [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/RL_PPO_ANYMAL_C_VIDEO.ipynb)
 
 
-## Introduction To Reinforcement Learning <a name="intro-to-rl"></a>
+## Intro To Reinforcement Learning <a name="intro-to-rl"></a>
 
 Reinforcement Learning is an area of Machine Learning concerned with how intelligent agents ought to take actions in an environment based on rewarding desired behaviors and/or punishing undesired ones. 
  
@@ -228,6 +228,8 @@ After the following sweep we found a good set of hyperparameters, and after some
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_1000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_2000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3908.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5006.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5734.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-304.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-506_Final.gif">
 </p>
 
+<br/>
+
 <p align="center">
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/halfcheetah-reward.jpeg">
 </p>
@@ -356,13 +358,6 @@ After performing the sweep, these were the hyperparameters that gave us the best
 <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Video_Anymal_C_Reward_8876.gif">
 </p>
 
-<p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/ANYmal_C_step_from_behind.gif">
-</p>
-
-<p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/ANYmal_C_step_recovery_jump.gif">
-</p>
 <br/>
 
 <p align="center">
@@ -442,8 +437,13 @@ We used the same hyperparameters that we obtained in the previous experiment.
 
 ### Results <a name="results3"></a>
 
+<p align="center">
 <img src="./assets/ANYmal_C_step_recovery_jump.gif">
+</p>
+
+<p align="center">
 <img src="./assets/ANYmal_C_step_from_behind.gif">
+</p>
 
 <br/>
 <h2> mean = -0.06 , standard deviation = 0.18 </h2>
