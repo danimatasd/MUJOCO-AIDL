@@ -15,6 +15,8 @@ The goal of this project is to train several AI models to perform tasks using (D
 
 * JuanJo Nieto
 
+<br/>
+
 ## Index
 
 1. [How To Run](#how-to-run)
@@ -50,6 +52,8 @@ The goal of this project is to train several AI models to perform tasks using (D
 7. [Glossary: Hyperparameters](#glossary)
 8. [References](#ref)
 
+<br/>
+
 ## How To Run <a name="how-to-run"></a>
 
 In order to speed up the trainings of our models we have separated the video capture part of the code from the actual training code.
@@ -74,6 +78,7 @@ Alternatively we have also included a folder with the python files in case you w
 
     [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danimatasd/MUJOCO-AIDL/blob/main/notebooks/RL_PPO_ANYMAL_C_VIDEO.ipynb)
 
+<br/>
 
 ## Intro To Reinforcement Learning <a name="intro-to-rl"></a>
 
