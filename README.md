@@ -48,6 +48,7 @@ The goal of this project is to train several AI models to perform tasks using (D
 5. [Future Work](#future-work)
 6. [Computational Resources](#comp-res)
 7. [Glossary: Hyperparameters](#glossary)
+8. [References](#ref)
 
 ## How To Run <a name="how-to-run"></a>
 
@@ -101,6 +102,8 @@ A value-based method is an algorithm that learns to estimate the value function 
 
 In value-based methods, the agent uses this value function to choose the action that maximizes its expected cumulative reward. The value function can be learned using various techniques, such as Monte Carlo methods, temporal difference learning, or Q-learning.
 
+<br/>
+
 ## Proximal Policy Optimization (PPO) <a name="ppo"></a>
 
 Proximal Policy Optimization (PPO) is considered on of the state-of-the-art algorithms in Reinforcement Learning, and it consists of a policy gradient method whose main goal is to have an algorithm that is as reliable as possible, and is data efficient. 
@@ -113,6 +116,8 @@ As a policy-based algorithm, PPO is well-suited for tasks with continuous action
 
 Given the complexity of our model, which involves multiple joints and actions, we decided to utilize this algorithm for our project.
 
+<br/>
+
 ## MuJoCo <a name="mujoco"></a>
 
  [MuJoCo](https://mujoco.org/) (which stands for Multi-Joint dynamics with Contact) is a general purpose physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, machine learning, and other areas that demand fast and accurate simulation of articulated structures interacting with their environment.
@@ -122,6 +127,8 @@ Initially developed by Roboti LLC, it was acquired and made freely available by 
 <p align="center">
     <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/example_mujoco.gif?raw=true" width=30%>
 </p>
+
+<br/>
 
 ## Half Cheetah <a name="halfcheetah"></a>
 
@@ -247,6 +254,8 @@ Based on the given information, we draw a series of conclusions:
 2. The algorithm improved the model's running performance over time, as evidenced by the videos, with a maximum reward of 5734 achieved during training.
 
 3. The entropy started at 8.515 and went down to -6.949 in 77023 steps, which suggests that the policy became more deterministic as the training progressed, but we can see in graphs, once the entropy became negative, the reward suddenly fell, as you can see in the last two videos.
+
+<br/>
 
 ## ANYmal C <a name="anymal-c"></a>
 
@@ -378,6 +387,8 @@ Based on the given information, we draw a series of conclusions:
 
 3. The entropy started at 17.025 and went down to 14.564 in 20.3 hours, which suggests that the policy became more deterministic as the training progressed.
 
+<br/>
+
 ## ANYmal C + Step <a name="anymal-c-step"></a>
 
 ### Overview <a name="overview3"></a>
@@ -479,6 +490,8 @@ After analyzing the provided information, we arrived at the following conclusion
 
 While the robot was able to successfully go over the step, it's performance fell below our expectations. However, we anticipate that making slight adjustments to the hyperparameters may yield improved outcomes.
 
+<br/>
+
 ## Future Work <a name="future-work"></a>
 
 While we were able to achieve most of our initial goals, there are still some tasks that we were unable to finish. Moving forward, we have identified several interesting areas for future work, including: 
@@ -494,6 +507,8 @@ While we were able to achieve most of our initial goals, there are still some ta
 * Explore non-linear changes to the entropy or using a neural network to determine the covariance matrix value. 
 
 * Test the performance of the model with a larger neural network.
+
+<br/>
 
 ## Computational Resources <a name="comp-res"></a>
 
@@ -519,6 +534,8 @@ Here are the specifications of the machines:
     * INTEL Core i7-9750H @ 2.60 GHz
     * 8GB RAM
     * NVIDIA GeForce GTX 1050 4GB GDDR5
+
+<br/>
 
 ## Glossary: Hyperparameters <a name="glossary"></a>
 
@@ -547,3 +564,5 @@ In the following list we explain the different hyperparameters:
 11. std_init: the initial standard deviation for the Gaussian policy.
 
 12. std_min: the minimum standard deviation for the Gaussian policy. This determines the minimum amount of exploration the agent will perform. 
+
+## References <a name="ref"></a>
