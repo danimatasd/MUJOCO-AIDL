@@ -120,7 +120,7 @@ Given the complexity of our model, which involves multiple joints and actions, w
 Initially developed by Roboti LLC, it was acquired and made freely available by [DeepMind](https://www.deepmind.com/) in October 2021, and open sourced in May 2022.
 
 <p align="center">
-    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/example_mujoco.gif?raw=true" width=30%>
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/example_mujoco.gif?raw=true" width=30%>
 </p>
 
 ## Half Cheetah <a name="halfcheetah"></a>
@@ -131,7 +131,7 @@ Half Cheetah is an [OpenAI](https://openai.com/)'s [Gym](https://www.gymlibrary.
 The Half Cheetah is a 2-dimensional robot consisting of 9 links and 8 joints connecting them (including two paws). The goal is to apply a torque on the joints to make the cheetah run forward (right) as fast as possible, with a positive reward allocated based on the distance moved forward and a negative reward allocated for moving backward. The torso and head of the cheetah are fixed, and the torque can only be applied on the other 6 joints over the front and back thighs (connecting to the torso), shins (connecting to the thighs) and feet (connecting to the shins).
 
 <p align="center">
-    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/half_cheetah.gif?raw=true">
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/half_cheetah.gif?raw=true">
 </p>
 
 ### Hypothesis <a name="hypothesis1"></a>
@@ -225,7 +225,7 @@ After the following sweep we found a good set of hyperparameters, and after some
 ### Results <a name="results1"></a>
 
 <p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_1000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_2000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_3000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_3908.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_5006.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_5734.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_-304.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Halfcheetah_-_Reward_-506_Final.gif">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_1000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_2000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3908.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5006.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5734.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-304.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-506_Final.gif">
 </p>
 
 <p align="center">
@@ -255,7 +255,7 @@ The ANYmal C is a quadruped robot developed by [ANYbotics](https://www.anybotics
 The ANYmal C model has 12 degrees of freedom, enabling it to execute a wide variety of dynamic movements, such as walking, trotting, running, climbing, and crawling. These degrees of freedom provide the robot with the ability to move its body in many different ways, making it highly versatile and adaptable.
 
 <p align="center">
-    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Anybotics%20ANYmal%20C.jpg?raw=true">
+    <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Anybotics%20ANYmal%20C.jpg?raw=true">
 </p>
 
 ### Hypothesis <a name="hypothesis2"></a>
@@ -353,15 +353,15 @@ After performing the sweep, these were the hyperparameters that gave us the best
 ### Results <a name="results2"></a>
 
 <p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/Video_Anymal_C_Reward_8876.gif">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Video_Anymal_C_Reward_8876.gif">
 </p>
 
 <p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_from_behind.gif">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/ANYmal_C_step_from_behind.gif">
 </p>
 
 <p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/misc/ANYmal_C_step_recovery_jump.gif">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/ANYmal_C_step_recovery_jump.gif">
 </p>
 <br/>
 
