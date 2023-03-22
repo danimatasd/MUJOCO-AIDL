@@ -111,7 +111,7 @@ In value-based methods, the agent uses this value function to choose the action 
 
 ## Proximal Policy Optimization (PPO) <a name="ppo"></a>
 
-Proximal Policy Optimization (PPO) is considered on of the state-of-the-art algorithms in Reinforcement Learning, and it consists of a policy gradient method whose main goal is to have an algorithm that is as reliable as possible, and is data efficient. 
+Proximal Policy Optimization (PPO) is considered one of the state-of-the-art algorithms in Reinforcement Learning, and it consists of a policy gradient method whose main goal is to have an algorithm that is as reliable as possible, and is data efficient. 
 
 PPO is a policy-based reinforcement learning algorithm. It directly learns a policy that maps states to actions, rather than estimating a value function like value-based methods such as Q-learning.
 
@@ -148,10 +148,10 @@ The Half Cheetah is a 2-dimensional robot consisting of 9 links and 8 joints con
 
 ### Hypothesis <a name="hypothesis1"></a>
 
-We hypothesize that, by using the PPO algorithm with reinforcement learning to train the Half Cheetah model, we can achieve a higher reward compared to baseline models trained with other reinforcement learning algorithms. 
+We hypothesize that, by using the PPO algorithm we will be able to solve the environment with a small neural network. After that, we will use the same code as a template for the next experiments that we want to do.
 <br/> 
 <br/> 
-Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate, discount factor, and batch size will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
+Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate and discount factor will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
 <br/>
 <br/>
  Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust model that can achieve a higher reward in a variety of simulated environments.
