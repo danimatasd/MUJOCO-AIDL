@@ -88,8 +88,6 @@ Reinforcement Learning is an area of Machine Learning concerned with how intelli
 as to maximize a numerical reward signal. The learner is not told which actions to
 take, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning." — Richard S. Sutton and Andrew G. Barto [^1]
 
-[^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
-
 In Reinforcement Learning, there are many methods that can be classified into 
 two main groups: policy-based methods and value-based methods. 
 
@@ -569,3 +567,10 @@ In the following list we explain the different hyperparameters:
 12. std_min: the minimum standard deviation for the Gaussian policy. This determines the minimum value the action_std value can use, this is to prevent entropy levels that stop the training completely. 
 
 ## References <a name="ref"></a>
+
+[^1]: [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
+[^2]: [MuJoCo ](https://mujoco.org/)
+[^3]: [Gym Documentation](https://www.gymlibrary.dev/)
+[^4]: [PPO-PyTorch ](https://github.com/nikhilbarhate99/PPO-PyTorch)
+[^5]: ["Policy Gradient Methods (PGM)" slides from JuanJo Nieto](https://docs.google.com/presentation/d/1-wcaVYIKfTJepkRDBPjrEJ61d1f5QGYFolDzlRL6nKQ/edit#slide=id.g1b677ef8c8c_0_0)
+[^6]: [Lilian Weng: Policy Gradient Algorithms](https://lilianweng.github.io/posts/2018-04-08-policy-gradient/)
