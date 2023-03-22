@@ -568,14 +568,14 @@ In the following list we explain the different hyperparameters:
 
 ## References <a name="ref"></a>
 
-[Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
-
 [MuJoCo Documentation](https://mujoco.readthedocs.io/en/latest/overview.html)
 
 [Gym Documentation](https://www.gymlibrary.dev/)
 
-[PPO-PyTorch Github by nikhilbarhate99](https://github.com/nikhilbarhate99/PPO-PyTorch)
+[Policy Gradient Methods slides by JuanJo Nieto](https://docs.google.com/presentation/d/1-wcaVYIKfTJepkRDBPjrEJ61d1f5QGYFolDzlRL6nKQ/edit#slide=id.g1b677ef8c8c_0_0)
 
-[Policy Gradient Methods (PGM) slides by JuanJo Nieto](https://docs.google.com/presentation/d/1-wcaVYIKfTJepkRDBPjrEJ61d1f5QGYFolDzlRL6nKQ/edit#slide=id.g1b677ef8c8c_0_0)
+[*Reinforcement Learning: An Introduction,* Richard S. Sutton & Andrew G. Barto](http://incompleteideas.net/book/the-book-2nd.html)
+
+[PPO-PyTorch Github by nikhilbarhate99](https://github.com/nikhilbarhate99/PPO-PyTorch)
 
 [Policy Gradient Algorithms by Lilian Weng](https://lilianweng.github.io/posts/2018-04-08-policy-gradient/)
