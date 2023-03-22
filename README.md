@@ -586,4 +586,4 @@ In the following list we explain the different hyperparameters:
 
 [Policy Gradient Algorithms by Lilian Weng](https://lilianweng.github.io/posts/2018-04-08-policy-gradient/)
 
-https://proceedings.mlr.press/v164/rudin22a/rudin22a.pdf
+[Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning](https://proceedings.mlr.press/v164/rudin22a/rudin22a.pdf)
