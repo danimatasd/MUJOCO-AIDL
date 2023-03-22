@@ -501,6 +501,9 @@ While the robot was able to successfully go over the step, it's performance fell
 
 ## Future Work <a name="future-work"></a>
 
+<p align="center">
+    <img src="./assets/future-work-army-of-anymalCs.gif">
+</p>
 While we were able to achieve most of our initial goals, there are still some tasks that we were unable to finish. Moving forward, we have identified several interesting areas for future work, including: 
 
 * Continue the hyperparameter tuning. 
