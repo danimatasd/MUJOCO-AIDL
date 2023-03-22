@@ -148,13 +148,13 @@ The Half Cheetah is a 2-dimensional robot consisting of 9 links and 8 joints con
 
 ### Hypothesis <a name="hypothesis1"></a>
 
-We hypothesize that, by using the PPO algorithm we will be able to solve the environment with a small neural network. After that, we will use the same code as a template for the next experiments that we want to do.
+We hypothesize that, by using the PPO algorithm we will be able to solve the experiment on the environment with a small neural network. After that, we will use the same code as a template for the next experiments that we want to do. The general idea is to make the Half-cheetah walk/run forward as fast as it can.
 <br/> 
 <br/> 
 Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate and discount factor will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
 <br/>
 <br/>
- Overall, we believe that by using the PPO algorithm and optimizing the hyperparameters, we can develop efficient and robust model that can achieve a high reward in a the simulated environment.
+ Overall, we believe that by using the PPO algorithm and optimizing the hyperparameters, we can develop an efficient and robust model that can achieve a high reward in a the simulated environment.
 
 ### Experiment Setup <a name="exp-setup1"></a>
 
@@ -236,7 +236,7 @@ After the following sweep we found a good set of hyperparameters, and after some
 ### Results <a name="results1"></a>
 
 <p align="center">
-<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_1000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_2000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3908.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5006.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5734.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-304.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-506_Final.gif">
+<img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-304.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_1000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_2000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3000.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_3908.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5006.gif"> <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_5734.gif">  <img src="https://github.com/danimatasd/MUJOCO-AIDL/blob/main/assets/Halfcheetah_-_Reward_-506_Final.gif">
 </p>
 
 <br/>
@@ -257,7 +257,7 @@ Based on the given information, we draw a series of conclusions:
 
 2. The algorithm improved the model's running performance over time, as evidenced by the videos, with a maximum reward of 5734 achieved during training.
 
-3. The entropy started at 8.515 and went down to -6.949 in 46230 episodes, which suggests that the policy became more deterministic as the training progressed, but we can see in graphs, once the entropy became negative, the reward suddenly fell, as you can see in the last two videos.
+3. The entropy started at 8.515 and went down to -6.949 in 46230 episodes, which suggests that the policy became more deterministic as the training progressed, but we can see in graphs, once the entropy became negative, the reward suddenly fell, as you can see in the last video.
 
 <br/>
 
@@ -275,13 +275,13 @@ The ANYmal C model has 12 degrees of freedom, enabling it to execute a wide vari
 
 ### Hypothesis <a name="hypothesis2"></a>
 
-We hypothesize that, by using the PPO algorithm with reinforcement learning to train the Anybotics model, we can achieve a higher reward compared to baseline models trained with other reinforcement learning algorithms. 
+We hypothesize that using the same algorithm used for the Half-cheetah with minimal changes and we will be able to make the Anymal-C walk forward.
 <br/> 
 <br/> 
-Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate, discount factor, and batch size will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
+Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate, discount factor, and PPO epoch will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process.
 <br/>
 <br/>
- Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust model that can achieve a higher reward in a variety of simulated environments.
+ Overall, we believe that by using the algorithm we developed for the half-cheetah and optimizing the hyperparameters for this particular case, we can develop an efficient and robust model that can achieve a high reward in a the simulated environment.
  <br/>
  <br/>
 
@@ -290,29 +290,28 @@ Also, we predict that by performing a hyperparameter sweep and optimizing the hy
 The steps we followed in order to do this experiment, were: 
 <br/>
 
-1. Setting up the MuJoCo environment, and importing all the necessary libraries: <br/>
+1. Setting up the custom MuJoCo environment for training and testing, and importing all the necessary libraries: <br/>
 Install MuJoCo and set up the environment variables
 Download the appropriate robot model and environment file.
-Finally, import necessary libraries such as matplotlib, wandb, etc. 
+Finally, import necessary libraries such as torch, numpy, wandb, etc. 
 
 2. Hyperparameters tuning with a sweep: <br/>
-Define the range of values for each hyperparameter (e.g. learning rate, batch size, etc.).
-Perform the hyperparameter sweep using grid search or random search.
+Define the range of values for each hyperparameter (e.g. learning rate, PPO epoch, etc.).
+Perform the hyperparameter sweep using bayes method.
 Record the results for each set of hyperparameters (e.g. reward, entropy, training time, etc.)
 
 3. Training the final model with the previous parameters with a long run to obtain rewards and entropy metrics: <br/>
-Select the set of hyperparameters that yielded the best results from the hyperparameter sweep
-Write a script to train the final model using the selected hyperparameters and a long training run.
-Monitor the training progress by logging the reward and entropy metrics at regular intervals in Wandb and, also, visualize the results using graphs or plots to better understand the learning process
+Select the set of hyperparameters that yielded the best results from the hyperparameter sweep.
+Monitor the training progress by logging the reward and entropy metrics at regular intervals in Wandb and, also, visualize the results using graphs or plots to better understand the learning process.
 
 4. Evaluation: <br/>
-Test the trained model on a set of unseen environments to evaluate its performance.
+Test the trained model on the environment to evaluate its performance and record a video of the test.
 
 Overall, this experiment setup provides a systematic approach for designing and evaluating reinforcement learning models using the MuJoCo environment, hyperparameter tuning, and long training runs.
 
 #### Architecture <a name="architecture2"></a>
 
-We have added one hidden layer more in comparison with the half cheetah environment and we use more input parameters.
+We have added one hidden layer more in comparison with the half cheetah environment and we use more input parameters since the state and agent are more complex.
 
     self.mlp = nn.Sequential(
         nn.Linear(obs_len, 128),
@@ -385,7 +384,7 @@ After performing the sweep, these were the hyperparameters that gave us the best
 
 Based on the given information, we draw a series of conclusions:
 
-1. The training algorithm being used is Proximal Policy Optimization (PPO), which is a reinforcement learning algorithm that has been shown to be effective for training robotic control tasks.
+1. The training algorithm used on the Half-cheetah had to be modified with more hidden layers to be succesful in completing the given task of making the ANYmal c walk forward.
 
 2. The algorithm improved the model's walking performance over time, as evidenced by the videos, with a maximum reward of 6036.56 achieved during training.
 
@@ -397,7 +396,7 @@ Based on the given information, we draw a series of conclusions:
 
 ### Overview <a name="overview3"></a>
 
-After reviewing the outcomes of the prior experiment, we aimed to modify the  enviroment setting marginally by introducing a small obstacle (small step), allowing the robot to attempt learning how to walk over it.  
+After reviewing the outcomes of the prior experiment, we aimed to modify the enviroment setting marginally by introducing a small obstacle (small step), allowing the robot to attempt learning how to walk over it.  
 
 <p align="center">
     <img src="./assets/anymalc-transferLearning-behind.jpeg">
@@ -409,7 +408,7 @@ Employing the PPO algorithm and transfer learning in the same configuration as t
 
 ### Experiment Setup <a name="exp-setup3"></a>
 
-Since we solely introduced a minor ste in the environment and replicated the prior experiment setup, the conditions remained unchanged from the previous experiment.
+Since we solely introduced a minor step in the environment and replicated the prior experiment setup, the conditions remained unchanged from the previous experiment.
 
 #### Architecture <a name="architecture3"></a>
 
@@ -567,6 +566,6 @@ In the following list we explain the different hyperparameters:
 
 11. std_init: the initial standard deviation for the Gaussian policy.
 
-12. std_min: the minimum standard deviation for the Gaussian policy. This determines the minimum amount of exploration the agent will perform. 
+12. std_min: the minimum standard deviation for the Gaussian policy. This determines the minimum value the action_std value can use, this is to prevent entropy levels that stop the training completely. 
 
 ## References <a name="ref"></a>
