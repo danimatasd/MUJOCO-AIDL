@@ -154,7 +154,7 @@ We hypothesize that, by using the PPO algorithm we will be able to solve the env
 Also, we predict that by performing a hyperparameter sweep and optimizing the hyperparameters, we can further improve the performance of the model and achieve a higher reward. We expect that the hyperparameters such as the learning rate and discount factor will have the most significant impact on the performance of the model, and tuning them appropriately will lead to a better-performing model. Additionally, we anticipate that by increasing the number of training episodes and using a larger replay buffer, we can help stabilize the training process and prevent the model from overfitting to recent experiences.
 <br/>
 <br/>
- Overall, we believe that by combining the PPO algorithm with reinforcement learning and optimizing the hyperparameters, we can develop a more efficient and robust model that can achieve a higher reward in a variety of simulated environments.
+ Overall, we believe that by using the PPO algorithm and optimizing the hyperparameters, we can develop efficient and robust model that can achieve a high reward in a the simulated environment.
 
 ### Experiment Setup <a name="exp-setup1"></a>
 
@@ -164,22 +164,21 @@ The steps we followed in order to do this experiment, were:
 1. Setting up the MuJoCo environment, and importing all the necessary libraries: <br/>
 Install MuJoCo and set up the environment variables
 Download the appropriate robot model and environment file.
-Finally, import necessary libraries such as matplotlib, wandb, etc. 
+Finally, import necessary libraries such as torch, numpy, wandb, etc. 
 
 2. Hyperparameters tuning with a sweep: <br/>
-Define the range of values for each hyperparameter (e.g. learning rate, batch size, etc.).
-Perform the hyperparameter sweep using grid search or random search.
+Define the range of values for each hyperparameter (e.g. learning rate, PPO epochs, etc.).
+Perform the hyperparameter sweep using bayes method.
 Record the results for each set of hyperparameters (e.g. reward, entropy, training time, etc.)
 
 3. Training the final model with the previous parameters with a long run to obtain rewards and entropy metrics: <br/>
 Select the set of hyperparameters that yielded the best results from the hyperparameter sweep
-Write a script to train the final model using the selected hyperparameters and a long training run.
-Monitor the training progress by logging the reward and entropy metrics at regular intervals in Wandb and, also, visualize the results using graphs or plots to better understand the learning process
+Monitor the training progress by logging the reward and entropy metrics at regular intervals in Wandb and, also, visualize the results using graphs or plots to better understand the learning process.
 
 4. Evaluation: <br/>
-Test the trained model on a set of unseen environments to evaluate its performance.
+Test the trained model on the environment to evaluate its performance and record a video of the test.
 
-Overall, this experiment setup provides a systematic approach for designing and evaluating reinforcement learning models using the MuJoCo environment, hyperparameter tuning, and long training runs.
+Overall, this experiment setup provides a systematic approach for designing and evaluating reinforcement learning models using the gym environment with Mujoco engine, hyperparameter tuning, and long training runs.
 
 #### Architecture <a name="architecture1"></a>
 
@@ -254,11 +253,11 @@ After the following sweep we found a good set of hyperparameters, and after some
 
 Based on the given information, we draw a series of conclusions:
 
-1. The training algorithm being used is Proximal Policy Optimization (PPO), which is a reinforcement learning algorithm that has been shown to be effective for training robotic control tasks.
+1. The training algorithm used was succesful in completing the given task of making the half cheetah run forward.
 
 2. The algorithm improved the model's running performance over time, as evidenced by the videos, with a maximum reward of 5734 achieved during training.
 
-3. The entropy started at 8.515 and went down to -6.949 in 77023 steps, which suggests that the policy became more deterministic as the training progressed, but we can see in graphs, once the entropy became negative, the reward suddenly fell, as you can see in the last two videos.
+3. The entropy started at 8.515 and went down to -6.949 in 46230 episodes, which suggests that the policy became more deterministic as the training progressed, but we can see in graphs, once the entropy became negative, the reward suddenly fell, as you can see in the last two videos.
 
 <br/>
 
