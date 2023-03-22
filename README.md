@@ -412,7 +412,7 @@ Employing the PPO algorithm and transfer learning in the same configuration as t
 
 ### Experiment Setup <a name="exp-setup3"></a>
 
-Since we solely introduced a minor step in the environment by modifying the mujoco environment scen and replicated the prior experiment setup, the conditions remained unchanged from the previous experiment. The code was also modified to load the checkpoint files from the best network and optimizer to use the transfer learning technique.
+Since we solely introduced a minor step (15 cm) in the environment by modifying the mujoco environment scen and replicated the prior experiment setup, the conditions remained unchanged from the previous experiment. The code was also modified to load the checkpoint files from the best network and optimizer to use the transfer learning technique.
 
 #### Architecture <a name="architecture3"></a>
 
@@ -491,7 +491,7 @@ We used the same hyperparameters that we obtained in the previous experiment.
 
 After analyzing the provided information, we arrived at the following conclusions:
 
-1. The robot's average reward remained steady at approximately 3000. Additionally, with the aid of video animation, the robot was able to regain stability following any stumbling that occurred while crossing the obstacle.
+1. The robot's average reward remained steady at approximately 3000. Additionally, with the aid of video animation, the robot was able to regain stability following any stumbling that occurred while crossing the obstacle. The range of the movements obtained by the 50 runs with this new model compared to the previous one is very similar. Therefore there is no evidence of a substantial change in the way the model walks but it has learnt to regain stability when it falls. Note that the previous model did not train in this case because the episodes ended when the robot height was under 30 cm.
 
 2. The entropy showed a linear decrease from 17.925 to 14.611 over the course of 21.31 hours. This trend may indicate that the policy became more deterministic as the training progressed.
 
